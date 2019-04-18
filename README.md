@@ -101,7 +101,17 @@ build with spring & mysql
 
 5. 提交代码 git push
 
-   1.  git push 避免每次都输入密码：git config --global credential.helper store，下次输入账号密码时就会自动保存！
+   1.  git push 避免每次都输入密码？
+
+      是否使用了https的方式进行连接？
+
+      $ git remote -v
+      origin  https://gitee.com/njcky/oms.git (fetch)
+      origin  https://gitee.com/njcky/oms.git (push)
+
+      说明使用了ssh的方式进行了连接，修改为ssh方式连接：
+
+      git remote rm origin
 
 6. 新建 Pull Request
 
