@@ -93,7 +93,6 @@ build with spring & mysql
    $ git config --list
    ```
 
-
 4. 使用ssh方式，克隆远程分支到本地，git clone git@gitee.com:njcky/oms.git （只会clone 远程的master分支）
 
 5. 新建 自己的 分支
