@@ -73,20 +73,35 @@ build with spring & mysql
 
 #### 使用说明
 
-1. 添加公钥到码云：
-
-   http://www.runoob.com/w3cnote/view-ssh-public-key.html
-
-2. xxxx
-
-3. xxxx
+1. xxx
+2. xxx
+3. xxx
 
 #### 参与贡献
 
-1. Fork 本仓库
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+1. 联系管理员邀请你加入仓库
+
+2. 添加公钥到码云：
+
+   http://www.runoob.com/w3cnote/view-ssh-public-key.html
+
+3. ```bash
+   # Setting Up User Name and Email Address
+   $ git config --global user.name "John Doe"
+   $ git config --global user.email johndoe@example.com
+   # Checking Your Settings
+   $ git config --list
+   ```
+
+4. 新建 自己的 分支
+
+   1. 查看远程分支 git branch -a
+   2. 查看本地分支 git branch
+   3. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
+
+5. 提交代码
+
+6. 新建 Pull Request
 
 
 #### 码云特技
