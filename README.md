@@ -99,7 +99,9 @@ build with spring & mysql
    2. 查看本地分支 git branch
    3. 切换到远程分支origin/mr并命令本地分支为"mr": git checkout -b mr origin/mr
 
-5. 提交代码 git push origin mr
+5. 提交代码 git push
+
+   1.  git push 避免每次都输入密码：git config --global credential.helper store，下次输入账号密码时就会自动保存
 
 6. 新建 Pull Request
 
