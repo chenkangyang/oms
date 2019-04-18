@@ -14,7 +14,7 @@ build with spring & mysql
 
     C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
   文件内容如下:
-  ```properties
+  ```java
   
   
   allprojects{
