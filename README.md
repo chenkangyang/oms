@@ -93,15 +93,18 @@ build with spring & mysql
    $ git config --list
    ```
 
-4. 新建 自己的 分支
+4. 使用ssh将项目clone到本地
 
-   1. 查看远程分支 git branch -a
-   2. 查看本地分支 git branch
-   3. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
+5. 默认处于master分支，新建 自己的 分支
 
-5. 提交代码
+   1. origin 是远程仓库的别名
+   2. 查看远程分支 git branch -a
+   3. 查看本地分支 git branch
+   4. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
 
-6. 新建 Pull Request
+6. 提交代码
+
+7. 新建 Pull Request
 
 
 #### 码云特技
