@@ -101,7 +101,7 @@ build with spring & mysql
 
 5. 提交代码 git push
 
-   1.  git push 避免每次都输入密码？
+   1. git push 避免每次都输入密码？
 
       是否使用了https的方式进行连接？
 
@@ -109,9 +109,15 @@ build with spring & mysql
       origin  https://gitee.com/njcky/oms.git (fetch)
       origin  https://gitee.com/njcky/oms.git (push)
 
-      说明使用了ssh的方式进行了连接，修改为ssh方式连接：
+      说明使用了ssh的方式进行了连接，切换回master分支:git checkout master, 
+
+      修改为ssh方式连接：
 
       git remote rm origin
+
+      git remote add origin XXX.git (这里一般是你项目中的ssh地址)
+
+      git push -u origin master
 
 6. 新建 Pull Request
 
