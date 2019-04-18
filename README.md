@@ -102,7 +102,7 @@ build with spring & mysql
    3. 查看本地分支 git branch
    4. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
 
-6. 提交代码
+6. 提交代码，
 
 7. 新建 Pull Request
 
