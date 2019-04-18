@@ -97,9 +97,9 @@ build with spring & mysql
 
    1. 查看远程分支 git branch -a
    2. 查看本地分支 git branch
-   3. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
+   3. 切换到远程分支origin/mr并命令本地分支为"mr": git checkout -b mr origin/mr
 
-5. 提交代码
+5. 提交代码 git push origin mr
 
 6. 新建 Pull Request
 
