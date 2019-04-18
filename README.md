@@ -93,16 +93,34 @@ build with spring & mysql
    $ git config --list
    ```
 
-4. 使用ssh将项目clone到本地
 
-5. 默认处于master分支，新建 自己的 分支
+4. 使用ssh方式，克隆远程分支到本地，git clone git@gitee.com:njcky/oms.git （只会clone 远程的master分支）
 
-   1. origin 是远程仓库的别名
-   2. 查看远程分支 git branch -a
-   3. 查看本地分支 git branch
-   4. 切换到远程分支origin/mr并命令本地分支为"mr" git checkout -b mr origin/mr
+5. 新建 自己的 分支
 
-6. 提交代码，
+   1. 查看远程分支 git branch -a （origin为远程仓库的别名）
+   2. 查看本地分支 git branch
+   3. 切换到远程分支origin/mr并命令本地分支为"mr": git checkout -b mr origin/mr
+
+6. 提交代码 git push (默认提交到本地分支对应的远程分支)
+
+   1. git push 避免每次都输入密码？
+
+      是否使用了https的方式进行连接？
+
+      $ git remote -v
+      origin  https://gitee.com/njcky/oms.git (fetch)
+      origin  https://gitee.com/njcky/oms.git (push)
+
+      说明使用了ssh的方式进行了连接，切换回master分支:git checkout master, 
+
+      修改为ssh方式连接：
+
+      git remote rm origin
+
+      git remote add origin XXX.git (这里一般是你项目中的ssh地址)
+
+      git push -u origin master
 
 7. 新建 Pull Request
 
