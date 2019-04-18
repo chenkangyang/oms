@@ -121,7 +121,21 @@ build with spring & mysql
 
       git push -u origin master
 
-7. 新建 Pull Request
+      
+
+7. 新特性开发流程：
+
+   1. 切换到自己所在分支：git checkout mr
+   2. git pull origin master 首先和远程master分支内容同步
+   3. 新特性开发
+   4. git add .
+   5. git commit -m 'add new feature'
+   6. git push 提交到对应远程分支
+
+8. 提交 Pull Request 到 master分支
+
+   1. 若无冲突，让管理员审核
+   2. 若有冲突，git pull origin master，解决冲突，再提交。若冲突不可避免，交由管理员在master分支中手动解决冲突：git pull origin master，手动解决冲突（可利用vscode明显地看到冲突的地方）。管理员解决完冲突后，再次开发时，转7。
 
 
 #### 码云特技
