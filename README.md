@@ -10,42 +10,66 @@ build with spring & mysql
 
 #### 环境配置
 1. IDEAC 2019.1 中添加Spring Assistant
-gradle 修改为国内镜像：
-```
-C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
-文件内容如下:
+    gradle 修改为国内镜像：
 
-allprojects{
-    repositories {
-        def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
-        def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
-        all { ArtifactRepository repo ->
-            if(repo instanceof MavenArtifactRepository){
-                def url = repo.url.toString()
-                if (url.startsWith('https://repo1.maven.org/maven2')) {
-                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
-                    remove repo
-                }
-                if (url.startsWith('https://jcenter.bintray.com/')) {
-                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL."
-                    remove repo
-                }
-            }
-        }
-        maven {
-            url ALIYUN_REPOSITORY_URL
-            url ALIYUN_JCENTER_URL
-        }
-    }
-}
-```
-2. 
+  ```java
+  C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
+  文件内容如下:
+  
+  allprojects{
+      repositories {
+          def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
+          def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+          all { ArtifactRepository repo ->
+              if(repo instanceof MavenArtifactRepository){
+                  def url = repo.url.toString()
+                  if (url.startsWith('https://repo1.maven.org/maven2')) {
+                      project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
+                      remove repo
+                  }
+                  if (url.startsWith('https://jcenter.bintray.com/')) {
+                      project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL."
+                      remove repo
+                  }
+              }
+          }
+          maven {
+              url ALIYUN_REPOSITORY_URL
+              url ALIYUN_JCENTER_URL
+          }
+      }
+  }
+  ```
+
+
+2. IDE 中新建工程
+
+   ![Snipaste_2019-04-18_11-23-01](assets/Snipaste_2019-04-18_11-23-01.png)
+
+3. 添加依赖
+
+   ![Snipaste_2019-04-18_11-23-19](assets/Snipaste_2019-04-18_11-23-19.png)
+
+4. 设置gradle自动导入包
+
+   ![Snipaste_2019-04-18_11-24-09](assets/Snipaste_2019-04-18_11-24-09.png)
+
+5. 等待配置包完成后，主文件自动变为可执行
+
+   ![Snipaste_2019-04-18_11-39-26](assets/Snipaste_2019-04-18_11-39-26.png)
+
+6. 启动服务
+
+   ![Snipaste_2019-04-18_11-39-54](assets/Snipaste_2019-04-18_11-39-54.png)
+
+7. 浏览器中打开 http://localhost:8080
+
+   ![1555566478497](assets/1555566478497.png)
 
 #### 安装教程
 
 1. xxxx
 2. xxxx
-3. xxxx
 
 #### 使用说明
 
