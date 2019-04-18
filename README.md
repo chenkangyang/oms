@@ -12,9 +12,10 @@ build with spring & mysql
 1. IDEAC 2019.1 中添加Spring Assistant
     gradle 修改为国内镜像：
 
-  ```java
-  C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
+    C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
   文件内容如下:
+  ```java
+  
   
   allprojects{
       repositories {
