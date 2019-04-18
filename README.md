@@ -73,8 +73,12 @@ build with spring & mysql
 
 #### 使用说明
 
-1. xxxx
+1. 添加公钥到码云：
+
+   http://www.runoob.com/w3cnote/view-ssh-public-key.html
+
 2. xxxx
+
 3. xxxx
 
 #### 参与贡献
