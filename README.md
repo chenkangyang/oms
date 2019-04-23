@@ -12,9 +12,10 @@ build with spring & mysql
 1. IDEAC 2019.1 中添加Spring Assistant
     gradle 修改为国内镜像：
 
+    C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
+    文件内容如下:
   ```java
-  C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
-  文件内容如下:
+  
   
   allprojects{
       repositories {
@@ -62,9 +63,59 @@ build with spring & mysql
 
    ![Snipaste_2019-04-18_11-39-54](assets/Snipaste_2019-04-18_11-39-54.png)
 
+本机Gradle已经内置了Wrapper Task，执行Wrapper Task就可以在项目目录中生成Gradle Wrapper的目录文件。在项目根目录执行gradle wrapper就可以了，会生成和本机gradle相同的版本信息
+
+> gradlew = gradle + wrapper
+
+```
+$ gradle wrapper
+
+> Task :wrapper
+> BUILD SUCCESSFUL **in** 0s
+> 1 actionable task: 1 executed
+```
+
+这时会在项目根目录中生成如下文件：
+
+```
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+└── gradlew.bat
+```
+
+每个文件的含义如下：
+
+- gradle-wrapper.jar ：包含Gradle运行时的逻辑代码。
+- gradle-wrapper.properties ：负责配置包装器运行时行为的属性文件，用来配置使用哪个版本的Gradle等属性。
+- gradlew：Linux平台下，用于执行Gralde命令的包装器脚本。
+- gradlew.bat：Windows平台下，用于执行Gralde命令的包装器脚本。
+
+用于其他用户clone本项目后使用gradle wrapper直接进行项目的构建
+
+其他用户运行：gradlew bootrun 或者 gradlew build 时会下载“gradle-wrapper.properties”中的gradle版本，以保证和本机使用的gradle版本一致
+
+本机运行 gradle bootrun 会临时构建web服务，不需要创建jar文件，应当在开发阶段使用这个命令，因为它可以使我们静态的classpath资源（即：在*src/main/resources*下的文件）都成为可重载的资源。
+
+> $ gradle bootrun 
+
+**其次**，我们可以将应用程序打包为一个可执行的jar文件，继而执行所创建的文件。如果想要在一台远程服务器上运行Spring Boot应用，应当采用这种方法。
+
+通过在命令提示符中输入以下命令，就可以创建一个可执行的jar文件了。
+
+> $ gradle build
+
+这条命令会在*build/libs*目录下创建*spring-boot-web-application.jar*文件。在将其复制到远程服务器上后，可以通过以下命令运行应用程序。
+
+> $ java -jar spring-boot-web-application.jar
+
 7. 浏览器中打开 http://localhost:8080
 
    ![1555566478497](assets/1555566478497.png)
+
+
 
 #### 安装教程
 
