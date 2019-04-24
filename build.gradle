@@ -30,6 +30,10 @@ dependencies {
 	// Use MySQL Connector-J
 	compile 'mysql:mysql-connector-java'
 
+	// Spring Security
+	compile 'org.springframework.boot:spring-boot-starter-security'
+
+
 	// Use commons to builder objects' toString() method easilly
  //   compile 'org.apache.commons:commons-lang3'
 
