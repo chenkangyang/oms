@@ -53,7 +53,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 
     @Override
     public List<Goods> findGoods(Integer id) {
-
+        return null;
     }
 
     @Override

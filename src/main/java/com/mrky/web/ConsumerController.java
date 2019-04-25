@@ -17,7 +17,7 @@ import com.mrky.service.ConsumerServiceImpl;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(path = "/demo")
+@RequestMapping(path = "/app")
 public class ConsumerController {
 
     @Autowired
