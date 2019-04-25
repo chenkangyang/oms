@@ -4,21 +4,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
+@Table(name = "goods")
 public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "goods_id")
     private Integer id;
 
+    @Column(name = "goods_name")
     private String name;
 
+    @Column(name = "goods_imgUrl")
     private String imgUrl;
 
+    @Column(name = "goods_price")
     private Double price;
 
+    @Column(name = "goods_number")
     private Integer number;
+
+    @ManyToOne(targetEntity = Merchant.class)
+    @JoinColumn(name = "goods", referencedColumnName = "merchant")
+    private Merchant merchant;
+
+    @OneToOne(targetEntity = Order.class)
+    @JoinColumn(name = "goods_id", referencedColumnName = "order_goodsId")
+    private Order order;
 
     /**
      * @return the id
@@ -88,6 +107,34 @@ public class Goods {
      */
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    /**
+     * @return the merchant
+     */
+    public Merchant getMerchant() {
+        return merchant;
+    }
+
+    /**
+     * @param merchant the merchant to set
+     */
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
+    }
+
+    /**
+     * @return the order
+     */
+    public Order getOrder() {
+        return order;
+    }
+
+    /**
+     * @param order the order to set
+     */
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
 }

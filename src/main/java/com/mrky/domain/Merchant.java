@@ -4,16 +4,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
+@Table(name = "merchant")
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "merchant_id")
     private Integer id;
 
+    @Column(name = "merchant_password")
     private String password;
 
+    @Column(name = "merchant_income")
     private Integer income;
+
+    @OneToMany(mappedBy = "merchant")
+    private Collection<Goods> goods = new HashSet<Goods>();
 
     /**
      * @return the id
@@ -55,6 +68,20 @@ public class Merchant {
      */
     public void setIncome(Integer income) {
         this.income = income;
+    }
+
+    /**
+     * @return the goods
+     */
+    public Collection<Goods> getGoods() {
+        return goods;
+    }
+
+    /**
+     * @param goods the goods to set
+     */
+    public void setGoods(Collection<Goods> goods) {
+        this.goods = goods;
     }
 
 }
