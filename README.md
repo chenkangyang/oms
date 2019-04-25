@@ -5,7 +5,9 @@ Order management system
 build with spring & mysql
 
 #### 软件架构
-软件架构说明
+前端：React + UXCore
+后端：Spring Boot
+数据库： MySQL
 
 
 #### 环境配置
