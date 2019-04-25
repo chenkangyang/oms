@@ -12,7 +12,7 @@ import com.mrky.domain.Consumer;
 import com.mrky.repository.ConsumerRepository;
 import com.mrky.exception.*;
 
-import com.mrky.service.ConsumerService;
+import com.mrky.service.ConsumerServiceImpl;
 
 import java.util.Optional;
 
