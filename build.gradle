@@ -1,4 +1,11 @@
 plugins {
+	// Spring Boot gradle plugin provides many convenient features:
+	// 1.It collect all the jars on the classpath and builds a single, runnable "über-jar", 
+	//	which makes it more convenient to execute and transport your service.
+	// 2.It searcher for the public static void main() method to flag as a runnable class.
+	// 3.It provides a bulit-in dependency resolver that sets the version number to match Spring
+	//	Boot Dependencies. You can override any version you wish, but it will default to Boot's 
+	//	chosen set of versions.
 	id 'org.springframework.boot' version '2.1.4.RELEASE'
 	id 'java'
 }
@@ -14,8 +21,22 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'mysql:mysql-connector-java'
+
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// JPA Data(Including Repositories, Entities, Hibernate, etc...)
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Use MySQL Connector-J
+	compile 'mysql:mysql-connector-java'
+
+	// Spring Security
+	compile 'org.springframework.boot:spring-boot-starter-security'
+
+
+	// Use commons to builder objects' toString() method easilly
+ //   compile 'org.apache.commons:commons-lang3'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
