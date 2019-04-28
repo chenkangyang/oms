@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-04-28 14:38:52
+ * @LastEditTime: 2019-04-28 15:06:43
  */
 
 package com.mrky.service;
@@ -22,39 +22,45 @@ import com.mrky.repository.OrderRepository;
 import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
 
+    @Autowired
+    private ConsumerRepository consumerRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
+
     @Override
     public Consumer addConsumer(Consumer consumer) {
-        return null;
+        consumerRepository.save(consumer);
+        return consumer;
     }
 
     @Override
     public void deleteConsumer(Integer id) {
+        // 删除用户同时，也要删除与其相关的order
+        consumerRepository.deleteById(id);
 
     }
 
     @Override
     public List<Order> findOrder(Consumer consumer) {
-        return null;
+
+        return orderRepository.findByOrder_consumerId(consumer.getId());
     }
 
     @Override
     public Consumer readConsumerById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public void resetPassword(String password) {
-
+        return consumerRepository.findByConsumerId(id);
     }
 
     @Override
     public void updateConsumer(Consumer consumer) {
-
+        consumerRepository.save(consumer);
     }
 
 }

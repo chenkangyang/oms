@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 22:41:55
- * @LastEditTime: 2019-04-28 14:32:57
+ * @LastEditTime: 2019-04-28 15:06:29
  */
 package com.mrky.service;
 
@@ -25,8 +25,6 @@ public interface ConsumerService {
     void updateConsumer(Consumer consumer);
 
     void deleteConsumer(Integer id);
-
-    void resetPassword(String password);
 
     // 根据consumer信息找到所有有关该consumer的订单信息
     List<Order> findOrder(Consumer consumer);
