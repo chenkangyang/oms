@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mrky.domain.Consumer;
+import com.mrky.domain.Order;
 import com.mrky.repository.ConsumerRepository;
 import com.mrky.exception.*;
 
 import com.mrky.service.ConsumerServiceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -27,26 +29,31 @@ public class ConsumerController {
     public @ResponseBody String addNewConsumer(@RequestParam Integer id, @RequestParam String password,
             @RequestParam String address) {
 
-        Consumer c = new Consumer();
-        c.set
-        return "Saved " + toString();
+        Consumer c = new Consumer(id, password, address);
+        consumerServiceImpl.addConsumer(c);
+        return "Saved " + c.toString();
     }
 
     // TODO
     @RequestMapping(path = "/consumer/update", method = RequestMethod.POST)
-    public @ResponseBody String updateConsumerAdress(@RequestParam Integer id, @RequestParam String adress) {
+    public @ResponseBody String updateConsumer(@RequestParam Integer id, @RequestParam String password,
+            @RequestParam String address) {
         // TODO spring security
-        return null;
+        Consumer c = new Consumer(id, password, address);
+        consumerServiceImpl.updateConsumer(c);
+        return "Update" + c.toString();
     }
 
     @RequestMapping(path = "/consumer/delete", method = RequestMethod.GET)
     public @ResponseBody void deleteConsumer(@RequestParam Integer id) {
-        consumerRepository.deleteById(id);
+        consumerServiceImpl.deleteConsumer(id);
     }
 
-    @RequestMapping(path = "/consumer/all", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Consumer> getAllUsers() {
-        return consumerRepository.findAll();
+    @RequestMapping(path = "/consumer/order", method = RequestMethod.GET)
+    public @ResponseBody List<Order> findOrder(@RequestParam Integer id) {
+        Consumer c = new Consumer();
+        c.setId(id);
+        return consumerServiceImpl.findOrder(c);
     }
 
 }

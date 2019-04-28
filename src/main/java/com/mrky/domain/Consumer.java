@@ -84,20 +84,6 @@ public class Consumer {
     }
 
     /**
-     * @return the cost
-     */
-    public Double getCost() {
-        return cost;
-    }
-
-    /**
-     * @param cost the cost to set
-     */
-    public void setCost(Double cost) {
-        this.cost = cost;
-    }
-
-    /**
      * @return the orders
      */
     public Collection<Order> getOrders() {
