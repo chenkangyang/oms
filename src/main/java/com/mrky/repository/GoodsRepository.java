@@ -1,9 +1,9 @@
 package com.mrky.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.mrky.domain.Goods;
 
-public interface GoodsRepository extends CrudRepository<Goods, Integer> {
+public interface GoodsRepository extends JpaRepository<Goods, Integer> {
 
 }

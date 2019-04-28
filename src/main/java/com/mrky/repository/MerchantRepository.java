@@ -1,14 +1,9 @@
 package com.mrky.repository;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.mrky.domain.Merchant;
 
-public interface MerchantRepository extends CrudRepository<Merchant, Integer> {
+public interface MerchantRepository extends JpaRepository<Merchant, Integer> {
 
 }

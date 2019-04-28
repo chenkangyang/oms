@@ -21,7 +21,7 @@ import java.util.Optional;
 public class ConsumerController {
 
     @Autowired
-    private ConsumerRepository consumerRepository;
+    private ConsumerRepository consumerRepository; // create, reader, update, delete
 
     @RequestMapping(path = "/consumer/add", method = RequestMethod.POST)
     public @ResponseBody String addNewConsumer(@RequestParam Integer id, @RequestParam String password,

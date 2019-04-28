@@ -32,7 +32,7 @@ public class Goods {
     private Integer number;
 
     @ManyToOne(targetEntity = Merchant.class)
-    @JoinColumn(name = "goods", referencedColumnName = "merchant")
+    @JoinColumn(name = "goods_merchantId", referencedColumnName = "merchant_id")
     private Merchant merchant;
 
     @OneToOne(targetEntity = Order.class)

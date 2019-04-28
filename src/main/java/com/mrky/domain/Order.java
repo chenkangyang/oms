@@ -20,14 +20,6 @@ public class Order {
     @Column(name = "order_id") // 订单ID
     private Integer id;
 
-    // it refers to the consumer entity's id, which can't be null.
-    @Column(name = "order_consumerId", nullable = false) // 订单的顾客id
-    private Integer consumerId;
-
-    // it refers to the goods entity's id, which also can't be null.
-    @Column(name = "order_goodsId", nullable = false) // 订单的商品id
-    private Integer goodsId;
-
     // Ditto.
     @Column(name = "order_number", nullable = false) // 订单购买的数目
     private Integer number;
@@ -54,34 +46,6 @@ public class Order {
      */
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    /**
-     * @return the consumerId
-     */
-    public Integer getConsumerId() {
-        return consumerId;
-    }
-
-    /**
-     * @param consumerId the consumerId to set
-     */
-    public void setConsumerId(Integer consumerId) {
-        this.consumerId = consumerId;
-    }
-
-    /**
-     * @return the goodsId
-     */
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    /**
-     * @param goodsId the goodsId to set
-     */
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
     }
 
     /**

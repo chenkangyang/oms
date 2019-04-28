@@ -1,6 +1,7 @@
 package com.mrky.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Merchant {
     @Column(name = "merchant_income")
     private Integer income;
 
-    @OneToMany(mappedBy = "merchant")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "merchant")
     private Collection<Goods> goods = new HashSet<Goods>();
 
     /**

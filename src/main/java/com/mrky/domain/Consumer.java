@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +31,7 @@ public class Consumer {
     private Double cost;
 
     // 用于多个表之间的关系表示，一个consumer可以对应多个order
-    @OneToMany(mappedBy = "consumer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "consumer")
     private Collection<Order> orders = new HashSet<Order>();
 
     /**

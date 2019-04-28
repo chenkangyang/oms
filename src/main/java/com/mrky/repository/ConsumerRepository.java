@@ -1,9 +1,9 @@
 package com.mrky.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.*;
 
 import com.mrky.domain.Consumer;
 
-public interface ConsumerRepository extends CrudRepository<Consumer, Integer> {
+public interface ConsumerRepository extends JpaRepository<Consumer, Integer> {
 
 }
