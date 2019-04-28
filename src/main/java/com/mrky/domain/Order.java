@@ -34,6 +34,17 @@ public class Order {
     @JoinColumn(name = "order_goodsId", referencedColumnName = "goods_id")
     private Goods goods;
 
+    public Order() {
+
+    }
+
+    public Order(Integer id, Integer number, Consumer consumer, Goods goods) {
+        this.id = id;
+        this.number = number;
+        this.consumer = consumer;
+        this.goods = goods;
+    }
+
     /**
      * @return the id
      */

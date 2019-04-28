@@ -21,19 +21,15 @@ import java.util.Optional;
 public class ConsumerController {
 
     @Autowired
-    private ConsumerRepository consumerRepository; // create, reader, update, delete
+    private ConsumerServiceImpl consumerServiceImpl; // create, reader, update, delete
 
     @RequestMapping(path = "/consumer/add", method = RequestMethod.POST)
     public @ResponseBody String addNewConsumer(@RequestParam Integer id, @RequestParam String password,
             @RequestParam String address) {
 
-        Consumer t = new Consumer();
-        t.setId(id);
-        t.setPassword(password);
-        t.setAddress(address);
-        consumerRepository.save(t);
-
-        return "Saved " + t.toString();
+        Consumer c = new Consumer();
+        c.set
+        return "Saved " + toString();
     }
 
     // TODO

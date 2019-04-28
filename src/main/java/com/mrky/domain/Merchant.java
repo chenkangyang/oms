@@ -29,6 +29,16 @@ public class Merchant {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "merchant")
     private Collection<Goods> goods = new HashSet<Goods>();
 
+    public Merchant() {
+
+    }
+
+    public Merchant(Integer id, String password, Integer income) {
+        this.id = id;
+        this.password = password;
+        this.income = income;
+    }
+
     /**
      * @return the id
      */

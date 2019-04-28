@@ -39,6 +39,20 @@ public class Goods {
     @JoinColumn(name = "goods_id", referencedColumnName = "order_goodsId")
     private Order order;
 
+    public Goods() {
+
+    }
+
+    public Goods(Integer id, String name, String imgUrl, Double price, Integer number, Merchant merchant, Order order) {
+        this.id = id;
+        this.name = name;
+        this.imgUrl = imgUrl;
+        this.price = price;
+        this.number = number;
+        this.merchant = merchant;
+        this.order = order;
+    }
+
     /**
      * @return the id
      */

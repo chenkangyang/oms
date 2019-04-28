@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 21:26:03
- * @LastEditTime: 2019-04-28 15:59:07
+ * @LastEditTime: 2019-04-28 16:30:10
  */
 
 package com.mrky.service;
@@ -43,7 +43,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public void deleteGoods(Integer id) {
         goodsRepository.deleteById(id);
-        orderRepository.deleteByGoodsId(id);
+        // orderRepository.deleteByGoodsId(id);
     }
 
     @Override
@@ -54,17 +54,17 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Order> getOrders(Integer id) {
-        return null;
+        return orderRepository.findByGoodsId(id);
     }
 
     @Override
     public Goods readGoodsById(Integer id) {
-        return null;
+        return goodsRepository.findByGoodsId(id);
     }
 
     @Override
     public void updateGoods(Goods goods) {
-
+        goodsRepository.save(goods);
     }
 
 }

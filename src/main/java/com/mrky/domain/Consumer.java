@@ -27,12 +27,19 @@ public class Consumer {
     @Column(name = "consumer_address")
     private String address;
 
-    @Column(name = "consumer_cost")
-    private Double cost;
-
     // 用于多个表之间的关系表示，一个consumer可以对应多个order
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "consumer")
     private Collection<Order> orders = new HashSet<Order>();
+
+    public Consumer() {
+
+    }
+
+    public Consumer(Integer id, String password, String address) {
+        this.id = id;
+        this.password = password;
+        this.address = address;
+    }
 
     /**
      * @return the id

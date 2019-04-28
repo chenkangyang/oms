@@ -50,7 +50,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     @Override
     public List<Order> findOrder(Consumer consumer) {
 
-        return orderRepository.findByOrder_consumerId(consumer.getId());
+        return orderRepository.findByConsumerId(consumer.getId());
     }
 
     @Override

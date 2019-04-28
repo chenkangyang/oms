@@ -8,6 +8,7 @@ import com.mrky.domain.Order;
 import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
 import com.mrky.repository.GoodsRepository;
+import com.mrky.repository.MerchantRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,29 +16,36 @@ import org.springframework.stereotype.Service;
 @Service
 public class MerchantServiceImpl implements MerchantService {
 
+    @Autowired
+    private MerchantRepository merchantRepository;
+
+    @Autowired
+    private GoodsRepository goodsRepository;
+
     @Override
     public Merchant addMerchant(Merchant merchant) {
-        return null;
+        return merchantRepository.save(merchant);
     }
 
     @Override
     public void deleteMerchant(Integer id) {
-
+        merchantRepository.deleteById(id);
+        // 删除所有引用该merchant的商品？？？
     }
 
     @Override
     public List<Goods> findGoods(Integer id) {
-        return null;
+        return goodsRepository.findByMerchantId(id);
     }
 
     @Override
     public Merchant readMerchantById(Integer id) {
-        return null;
+        return merchantRepository.findByMerchantId(id);
     }
 
     @Override
     public void updateMerchant(Merchant merchant) {
-
+        merchantRepository.save(merchant);
     }
 
 }
