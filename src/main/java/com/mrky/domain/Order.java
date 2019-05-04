@@ -1,9 +1,14 @@
 package com.mrky.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
@@ -18,87 +23,132 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id") // 订单ID
-    private Integer id;
+    private Integer orderId;
 
-    // Ditto.
     @Column(name = "order_number", nullable = false) // 订单购买的数目
-    private Integer number;
+    private Integer orderNumber;
+
+    @Column(name = "order_goods_id", nullable = false)
+    private Integer goodsId;
+
+    @Column(name = "order_goods_name", nullable = false)
+    private String goodsName;
+
+    @Column(name = "order_consumer_id", nullable = false)
+    private Integer consumerId;
+
+    @Column(name = "order_consumer_name", nullable = false)
+    private String consumerName;
+
+    @Column(name = "order_status", nullable = false)
+    private Boolean orderStatus;
 
     // 一群order对应一个consumer
-    @ManyToOne(targetEntity = Consumer.class)
-    @JoinColumn(name = "order_consumerId", referencedColumnName = "consumer_id")
-    private Consumer consumer;
+    // @ManyToOne(targetEntity = Consumer.class)
+    // @JoinColumn(name = "order_order_id", referencedColumnName = "consumer_id")
+    // private Consumer consumer;
 
-    // 一个order对应以一个goods
-    @OneToOne(mappedBy = "order", targetEntity = Goods.class)
-    @JoinColumn(name = "order_goodsId", referencedColumnName = "goods_id")
-    private Goods goods;
+    // 一群order对应以一个goods,
+    // @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // @JoinColumn(name = "order_order_id", referencedColumnName = "goods_id")
+    // private Goods goods;
 
-    public Order() {
-
-    }
-
-    public Order(Integer id, Integer number, Consumer consumer, Goods goods) {
-        this.id = id;
-        this.number = number;
-        this.consumer = consumer;
-        this.goods = goods;
+    /**
+     * @return the orderId
+     */
+    public Integer getOrderId() {
+        return orderId;
     }
 
     /**
-     * @return the id
+     * @param orderId the orderId to set
      */
-    public Integer getId() {
-        return id;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     /**
-     * @param id the id to set
+     * @return the orderNumber
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getOrderNumber() {
+        return orderNumber;
     }
 
     /**
-     * @return the number
+     * @param orderNumber the orderNumber to set
      */
-    public Integer getNumber() {
-        return number;
+    public void setOrderNumber(Integer orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     /**
-     * @param number the number to set
+     * @return the goodsId
      */
-    public void setNumber(Integer number) {
-        this.number = number;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
     /**
-     * @return the consumer
+     * @param goodsId the goodsId to set
      */
-    public Consumer getConsumer() {
-        return consumer;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     /**
-     * @param consumer the consumer to set
+     * @return the goodsName
      */
-    public void setConsumer(Consumer consumer) {
-        this.consumer = consumer;
+    public String getGoodsName() {
+        return goodsName;
     }
 
     /**
-     * @return the goods
+     * @param goodsName the goodsName to set
      */
-    public Goods getGoods() {
-        return goods;
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 
     /**
-     * @param goods the goods to set
+     * @return the consumerId
      */
-    public void setGoods(Goods goods) {
-        this.goods = goods;
+    public Integer getConsumerId() {
+        return consumerId;
+    }
+
+    /**
+     * @param consumerId the consumerId to set
+     */
+    public void setConsumerId(Integer consumerId) {
+        this.consumerId = consumerId;
+    }
+
+    /**
+     * @return the consumerName
+     */
+    public String getConsumerName() {
+        return consumerName;
+    }
+
+    /**
+     * @param consumerName the consumerName to set
+     */
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
+    }
+
+    /**
+     * @return the orderStatus
+     */
+    public Boolean getOrderStatus() {
+        return orderStatus;
+    }
+
+    /**
+     * @param orderStatus the orderStatus to set
+     */
+    public void setOrderStatus(Boolean orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
 }

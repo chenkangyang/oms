@@ -18,81 +18,75 @@ public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "merchant_id")
-    private Integer id;
+    private Integer merchantId;
+
+    @Column(name = "merchant_name")
+    private String merchantName;
 
     @Column(name = "merchant_password")
-    private String password;
+    private String merchantPassword;
 
-    @Column(name = "merchant_income")
-    private Integer income;
+    @Column(name = "merchant_amount")
+    private Integer merchantAmount;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "merchant")
-    private Collection<Goods> goods = new HashSet<Goods>();
-
-    public Merchant() {
-
-    }
-
-    public Merchant(Integer id, String password, Integer income) {
-        this.id = id;
-        this.password = password;
-        this.income = income;
+    /**
+     * @return the merchantId
+     */
+    public Integer getMerchantId() {
+        return merchantId;
     }
 
     /**
-     * @return the id
+     * @param merchantId the merchantId to set
      */
-    public Integer getId() {
-        return id;
+    public void setMerchantId(Integer merchantId) {
+        this.merchantId = merchantId;
     }
 
     /**
-     * @param id the id to set
+     * @return the merchantName
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public String getMerchantName() {
+        return merchantName;
     }
 
     /**
-     * @return the password
+     * @param merchantName the merchantName to set
      */
-    public String getPassword() {
-        return password;
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
     }
 
     /**
-     * @param password the password to set
+     * @return the merchantPassword
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public String getMerchantPassword() {
+        return merchantPassword;
     }
 
     /**
-     * @return the income
+     * @param merchantPassword the merchantPassword to set
      */
-    public Integer getIncome() {
-        return income;
+    public void setMerchantPassword(String merchantPassword) {
+        this.merchantPassword = merchantPassword;
     }
 
     /**
-     * @param income the income to set
+     * @return the merchantAmount
      */
-    public void setIncome(Integer income) {
-        this.income = income;
+    public Integer getMerchantAmount() {
+        return merchantAmount;
     }
 
     /**
-     * @return the goods
+     * @param merchantAmount the merchantAmount to set
      */
-    public Collection<Goods> getGoods() {
-        return goods;
+    public void setMerchantAmount(Integer merchantAmount) {
+        this.merchantAmount = merchantAmount;
     }
 
-    /**
-     * @param goods the goods to set
-     */
-    public void setGoods(Collection<Goods> goods) {
-        this.goods = goods;
-    }
+    // 一个商家可以销售多间商品
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "merchant")
+    // private Collection<Goods> goods = new HashSet<Goods>();
 
 }

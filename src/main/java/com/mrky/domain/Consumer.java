@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
@@ -19,82 +20,94 @@ public class Consumer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "consumer_id")
-    private Integer id;
+    private Integer consumerId;
+
+    @Column(name = "consumer_name", nullable = false)
+    private String consumerName;
 
     @Column(name = "consumer_password", nullable = false)
-    private String password;
+    private String consumerPassword;
 
-    @Column(name = "consumer_address")
-    private String address;
+    @Column(name = "consumer_address", nullable = false)
+    private String consumerAddress;
+
+    @Column(name = "consumer_amount", nullable = false)
+    private int consumerAmount;
+
+    /**
+     * @return the consumerId
+     */
+    public Integer getConsumerId() {
+        return consumerId;
+    }
+
+    /**
+     * @param consumerId the consumerId to set
+     */
+    public void setConsumerId(Integer consumerId) {
+        this.consumerId = consumerId;
+    }
+
+    /**
+     * @return the consumerName
+     */
+    public String getConsumerName() {
+        return consumerName;
+    }
+
+    /**
+     * @param consumerName the consumerName to set
+     */
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
+    }
+
+    /**
+     * @return the consumerPassword
+     */
+    public String getConsumerPassword() {
+        return consumerPassword;
+    }
+
+    /**
+     * @param consumerPassword the consumerPassword to set
+     */
+    public void setConsumerPassword(String consumerPassword) {
+        this.consumerPassword = consumerPassword;
+    }
+
+    /**
+     * @return the consumerAddress
+     */
+    public String getConsumerAddress() {
+        return consumerAddress;
+    }
+
+    /**
+     * @param consumerAddress the consumerAddress to set
+     */
+    public void setConsumerAddress(String consumerAddress) {
+        this.consumerAddress = consumerAddress;
+    }
+
+    /**
+     * @return the consumerAmount
+     */
+    public int getConsumerAmount() {
+        return consumerAmount;
+    }
+
+    /**
+     * @param consumerAmount the consumerAmount to set
+     */
+    public void setConsumerAmount(int consumerAmount) {
+        this.consumerAmount = consumerAmount;
+    }
 
     // 用于多个表之间的关系表示，一个consumer可以对应多个order
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "consumer")
-    private Collection<Order> orders = new HashSet<Order>();
-
-    public Consumer() {
-
-    }
-
-    public Consumer(Integer id, String password, String address) {
-        this.id = id;
-        this.password = password;
-        this.address = address;
-    }
-
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the orders
-     */
-    public Collection<Order> getOrders() {
-        return orders;
-    }
-
-    /**
-     * @param orders the orders to set
-     */
-    public void setOrders(Collection<Order> orders) {
-        this.orders = orders;
-    }
+    // 删除用户时会删除所有有关其订单
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "consumer", cascade =
+    // CascadeType.ALL)
+    // private Collection<Order> orders = new HashSet<Order>();
 
 }
