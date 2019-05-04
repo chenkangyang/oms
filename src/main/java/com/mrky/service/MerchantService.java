@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 17:17:44
- * @LastEditTime: 2019-05-04 22:35:51
+ * @LastEditTime: 2019-05-04 22:46:07
  */
 
 package com.mrky.service;
@@ -39,6 +39,13 @@ public interface MerchantService {
     // 参数: 商家id
     // 操作: 返回goods
     List<Goods> showOwnGoods(Integer merchantId);
+
+    // 功能: 增加新的商品
+    // 权限要求: 指定商家
+    // 条件:
+    // 参数: 商家id， 商品goodsName, goodsPrice, goodsStock
+    // 操作: 在OrderRepository中增加指定产品
+    Map<String, String> addGoods(Integer merchantId, String goodsName, String goodsPrice, String goodsStock);
 
     // 功能: 确认订单？？？，商家有权利？
     // 权限要求:

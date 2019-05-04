@@ -32,7 +32,6 @@ public class MerchantController {
     @RequestMapping(path = "/merchant/delete", method = RequestMethod.POST)
     public @ResponseBody String deleteMerchant(@RequestParam Integer id) {
 
-        merchantServiceImpl.deleteMerchant(id);
         return "Delete one merchant";
     }
 

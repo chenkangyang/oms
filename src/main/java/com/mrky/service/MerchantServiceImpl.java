@@ -51,4 +51,9 @@ public class MerchantServiceImpl implements MerchantService {
     public List<Goods> showOwnGoods(Integer merchantId) {
         return null;
     }
+
+    @Override
+    public Map<String, String> addGoods(Integer merchantId, String goodsName, String goodsPrice, String goodsStock) {
+        return null;
+    }
 }

@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-05-04 22:36:54
+ * @LastEditTime: 2019-05-04 23:19:36
  */
 
 package com.mrky.service;
@@ -37,12 +37,11 @@ public class ConsumerServiceImpl implements ConsumerService {
 
     @Override
     public Map<String, String> addOrder(Integer consumerId, Integer goodsId, Integer number) {
-
         return null;
     }
 
     @Override
-    public Map<String, String> deleteOrder(Integer orderId) {
+    public Map<String, String> deleteOrder(Integer consumerId, Integer orderId) {
         return null;
     }
 
@@ -67,12 +66,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    public Map<String, String> retrunGoods(Integer orderId) {
-        return null;
-    }
-
-    @Override
-    public List<Order> showOrders(Integer consumerId) {
+    public Map<String, String> returnGoods(Integer consumerId, Integer orderId) {
         return null;
     }
 
