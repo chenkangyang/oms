@@ -40,8 +40,9 @@ public class Order {
     @Column(name = "order_consumer_name", nullable = false)
     private String consumerName;
 
+    // 1：客户下单 -> 2:客人取消订单 -> 3：客人确认收货 -> 4:客人退货 -> 5:商家同意
     @Column(name = "order_status", nullable = false)
-    private Boolean orderStatus;
+    private Integer orderStatus;
 
     // 一群order对应一个consumer
     // @ManyToOne(targetEntity = Consumer.class)
@@ -140,14 +141,14 @@ public class Order {
     /**
      * @return the orderStatus
      */
-    public Boolean getOrderStatus() {
+    public Integer getOrderStatus() {
         return orderStatus;
     }
 
     /**
      * @param orderStatus the orderStatus to set
      */
-    public void setOrderStatus(Boolean orderStatus) {
+    public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
     }
 

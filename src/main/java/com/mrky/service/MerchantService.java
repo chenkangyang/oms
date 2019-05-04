@@ -3,30 +3,67 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 17:17:44
- * @LastEditTime: 2019-04-28 14:36:32
+ * @LastEditTime: 2019-05-04 22:35:51
  */
 
 package com.mrky.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
+import com.mrky.domain.Order;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface MerchantService {
+    // 功能:
+    // 权限要求:
+    // 条件:
+    // 参数:
+    // 操作:
 
-    Merchant addMerchant(Merchant merchant);
+    // 功能: 注册
+    // 权限要求: 无
+    // 条件:
+    // 参数: 商家的name，商家的password
+    // 操作: 数据库中添加商户
+    Map<String, String> registry(String merchantName, String merchantPassword);
 
-    Merchant readMerchantById(Integer id);
+    // 功能: 查看商家的产品
+    // 权限要求: 指定商家
+    // 条件:
+    // 参数: 商家id
+    // 操作: 返回goods
+    List<Goods> showOwnGoods(Integer merchantId);
 
-    void updateMerchant(Merchant merchant);
+    // 功能: 确认订单？？？，商家有权利？
+    // 权限要求:
+    // 条件:
+    // 参数:
+    // 操作
 
-    void deleteMerchant(Integer id);
+    // 功能: 查看订单
+    // 权限要求: 指定商家
+    // 条件:
+    // 参数: 商家id，
+    // 操作: 返回该商户订单
+    List<Order> showOrders(Integer merchantId);
 
-    // 根据商户id找到所有该商户出售的商品
-    List<Goods> findGoods(Integer id);
+    // 功能: 处理退货
+    // 权限要求: 指定商家
+    // 条件: order的状态为4， 后期可以适当更改，设置枚举类型，用于映射
+    // 参数: 商家id，
+    // 操作: 更改订单状况
+    Map<String, String> allowReturn(Integer merchantId, Integer orderId);
+
+    // 功能: 返回商家收入
+    // 权限要求: 指定商家
+    // 条件:
+    // 参数: 商家id
+    // 操作: 以map数据结构的amount 对应值为准
+    Map<String, String> lookAmount(Integer merchantId);
 }

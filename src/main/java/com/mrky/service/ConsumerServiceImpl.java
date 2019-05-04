@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-04-28 15:06:43
+ * @LastEditTime: 2019-05-04 22:36:54
  */
 
 package com.mrky.service;
@@ -24,6 +24,7 @@ import com.mrky.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
@@ -35,32 +36,49 @@ public class ConsumerServiceImpl implements ConsumerService {
     private OrderRepository orderRepository;
 
     @Override
-    public Consumer addConsumer(Consumer consumer) {
-        consumerRepository.save(consumer);
-        return consumer;
+    public Map<String, String> addOrder(Integer consumerId, Integer goodsId, Integer number) {
+
+        return null;
     }
 
     @Override
-    public void deleteConsumer(Integer id) {
-        // 删除用户同时，也要删除与其相关的order
-        consumerRepository.deleteById(id);
-
+    public Map<String, String> deleteOrder(Integer orderId) {
+        return null;
     }
 
     @Override
-    public List<Order> findOrder(Consumer consumer) {
-
-        return orderRepository.findByConsumerId(consumer.getId());
+    public Map<String, String> ensureOrder(Integer OrderId, Integer consumerId) {
+        return null;
     }
 
     @Override
-    public Consumer readConsumerById(Integer id) {
-        return consumerRepository.findByConsumerId(id);
+    public Map<String, String> lookAmount(Integer consumerId) {
+        return null;
     }
 
     @Override
-    public void updateConsumer(Consumer consumer) {
-        consumerRepository.save(consumer);
+    public List<Order> lookGoods() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> registry(String consumerName, String consumerPassword, String address) {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> retrunGoods(Integer orderId) {
+        return null;
+    }
+
+    @Override
+    public List<Order> showOrders(Integer consumerId) {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> update(Consumer conumser) {
+        return null;
     }
 
 }

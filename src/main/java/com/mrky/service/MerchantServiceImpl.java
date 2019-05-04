@@ -1,6 +1,7 @@
 package com.mrky.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
@@ -9,6 +10,7 @@ import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
 import com.mrky.repository.GoodsRepository;
 import com.mrky.repository.MerchantRepository;
+import com.mrky.repository.OrderRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,30 +24,31 @@ public class MerchantServiceImpl implements MerchantService {
     @Autowired
     private GoodsRepository goodsRepository;
 
+    @Autowired
+    private OrderRepository orderRepository;
+
     @Override
-    public Merchant addMerchant(Merchant merchant) {
-        return merchantRepository.save(merchant);
+    public Map<String, String> allowReturn(Integer merchantId, Integer orderId) {
+        return null;
     }
 
     @Override
-    public void deleteMerchant(Integer id) {
-        merchantRepository.deleteById(id);
-        // 删除所有引用该merchant的商品？？？
+    public Map<String, String> lookAmount(Integer merchantId) {
+        return null;
     }
 
     @Override
-    public List<Goods> findGoods(Integer id) {
-        return goodsRepository.findByMerchantId(id);
+    public Map<String, String> registry(String merchantName, String merchantPassword) {
+        return null;
     }
 
     @Override
-    public Merchant readMerchantById(Integer id) {
-        return merchantRepository.findByMerchantId(id);
+    public List<Order> showOrders(Integer merchantId) {
+        return null;
     }
 
     @Override
-    public void updateMerchant(Merchant merchant) {
-        merchantRepository.save(merchant);
+    public List<Goods> showOwnGoods(Integer merchantId) {
+        return null;
     }
-
 }

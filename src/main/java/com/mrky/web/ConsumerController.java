@@ -25,7 +25,8 @@ public class ConsumerController {
     @Autowired
     private ConsumerServiceImpl consumerServiceImpl; // create, reader, update, delete
 
-    @RequestMapping(path = "/consumers", method = RequestMethod.POST)
+    // 注册
+    @RequestMapping(path = "/consumers/registry", method = RequestMethod.POST)
     public String addNewConsumer(@RequestParam Integer id, @RequestParam String password,
             @RequestParam String address) {
 
@@ -42,7 +43,7 @@ public class ConsumerController {
 
     @RequestMapping(path = "/consumer/delete", method = RequestMethod.GET)
     public void deleteConsumer(@RequestParam Integer id) {
-        consumerServiceImpl.deleteConsumer(id);
+
     }
 
     @RequestMapping(path = "/consumer/order", method = RequestMethod.GET)

@@ -26,7 +26,6 @@ public class MerchantController {
     public @ResponseBody String addMerchant(@RequestParam Integer id, @RequestParam String password,
             @RequestParam Integer income) {
 
-        merchantServiceImpl.addMerchant(new Merchant(id, password, income));
         return "Add one merchant";
     }
 
@@ -41,7 +40,6 @@ public class MerchantController {
     public @ResponseBody String updateMerchant(@RequestParam Integer id, @RequestParam String password,
             @RequestParam Integer income) {
 
-        merchantServiceImpl.updateMerchant(new Merchant(id, password, income));
         return "Add one merchant";
     }
 
