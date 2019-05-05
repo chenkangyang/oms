@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 17:17:44
- * @LastEditTime: 2019-05-05 17:07:46
+ * @LastEditTime: 2019-05-05 17:43:56
  */
 
 package com.mrky.service;
@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface MerchantService {
+public interface MerchantService extends UserDetailsService {
     // 功能:
     // 权限要求:
     // 条件:

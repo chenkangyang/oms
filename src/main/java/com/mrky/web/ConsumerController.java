@@ -28,12 +28,18 @@ public class ConsumerController {
     private ConsumerServiceImpl consumerServiceImpl;
 
     // 注册
-    @RequestMapping(path = "/consumers/registry", method = RequestMethod.POST)
-    public Map<String, String> registry(@RequestParam("username") String consumerName,
+    @RequestMapping(path = "/consumer/registry", method = RequestMethod.POST)
+    public String registry(@RequestParam("username") String consumerName,
             @RequestParam("password") String consumerPassword, @RequestParam("address") String consumerAddress) {
 
-        return consumerServiceImpl.registry(consumerName, consumerPassword, consumerAddress);
+        consumerServiceImpl.registry(consumerName, consumerPassword, consumerAddress);
+        return "registry";
+    }
 
+    @RequestMapping(path = "/test")
+    @ResponseBody
+    public String test() {
+        return "test";
     }
 
     @RequestMapping(path = "/consumer/order", method = RequestMethod.POST)

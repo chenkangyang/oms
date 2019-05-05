@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-05-05 17:11:47
+ * @LastEditTime: 2019-05-05 22:11:33
  */
 
 package com.mrky.service;
@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mrky.domain.Consumer;
+import com.mrky.domain.ConsumerDetails;
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
 import com.mrky.domain.MyOrder;
@@ -295,6 +296,15 @@ public class ConsumerServiceImpl implements ConsumerService {
         }
         List<MyOrder> list = orderRepository.findByConsumerId(consumerId);
         return list;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Consumer consumer = consumerRepository.findByConsumerName(username);
+        if (consumer == null) {
+            throw new UsernameNotFoundException("账户不存在!");
+        }
+        return new ConsumerDetails(consumer);
     }
 
 }

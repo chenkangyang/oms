@@ -9,6 +9,7 @@ import java.util.Arrays;
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
+import com.mrky.domain.MerchantDetails;
 import com.mrky.domain.MyOrder;
 import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
@@ -18,6 +19,8 @@ import com.mrky.repository.MerchantRepository;
 import com.mrky.repository.MyOrderRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -166,5 +169,14 @@ public class MerchantServiceImpl implements MerchantService {
 
         map.put("status", "successful");
         return map;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Merchant merchant = merchantRepository.findByMerchantName(username);
+        if (merchant == null) {
+            throw new UsernameNotFoundException("账户不存在!");
+        }
+        return new MerchantDetails(merchant);
     }
 }

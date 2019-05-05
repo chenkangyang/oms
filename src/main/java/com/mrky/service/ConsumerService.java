@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 22:41:55
- * @LastEditTime: 2019-05-05 17:05:58
+ * @LastEditTime: 2019-05-05 17:43:26
  */
 package com.mrky.service;
 
@@ -16,7 +16,7 @@ import com.mrky.domain.MyOrder;
 import java.util.List;
 import java.util.Map;
 
-public interface ConsumerService {
+public interface ConsumerService extends UserDetailsService {
     // 功能: 注册
     // 权限要求: 无
     // 条件: 客人用户名不重复
