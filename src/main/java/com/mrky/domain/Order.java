@@ -22,29 +22,28 @@ public class Order {
     // Order id
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_id") // 订单ID
     private Integer orderId;
 
-    @Column(name = "order_number", nullable = false) // 订单购买的数目
+    @Column(nullable = false) // 订单购买的数目
     private Integer orderNumber;
 
-    @Column(name = "order_goods_id", nullable = false)
+    @Column(nullable = false)
     private Integer goodsId;
 
-    @Column(name = "order_goods_name", nullable = false)
+    @Column(nullable = false)
     private String goodsName;
 
-    @Column(name = "order_consumer_id", nullable = false)
+    @Column(nullable = false)
     private Integer consumerId;
 
-    @Column(name = "order_consumer_name", nullable = false)
+    @Column(nullable = false)
     private String consumerName;
 
-    @Column(name = "order_amount", nullable = false)
+    @Column(nullable = false)
     private Integer orderAmount;
 
     // 1：客户下单 -> 2：客人确认收货 -> 3:客人退货 -> 4:商家同意
-    @Column(name = "order_status", nullable = false)
+    @Column(nullable = false)
     private Integer orderStatus;
 
     // 一群order对应一个consumer

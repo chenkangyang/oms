@@ -24,20 +24,19 @@ public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "goods_id")
     private Integer goodsId;
 
-    @Column(name = "goods_name")
+    @Column(nullable = false)
     private String goodsName;
 
-    @Column(name = "goods_price")
+    @Column(nullable = false)
     private int goodsPrice;
 
-    @Column(name = "goods_stock")
+    @Column(nullable = false)
     private Integer goodsStock;
 
     // 放弃使用关系映射注解
-    @Column(name = "goods_merchant_id")
+    @Column(nullable = false)
     private Integer merchantId;
 
     /**

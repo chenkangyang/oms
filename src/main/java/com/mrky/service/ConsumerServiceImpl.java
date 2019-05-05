@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-05-05 15:43:52
+ * @LastEditTime: 2019-05-05 16:42:45
  */
 
 package com.mrky.service;
@@ -13,8 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import org.apache.commons.*;
 
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;

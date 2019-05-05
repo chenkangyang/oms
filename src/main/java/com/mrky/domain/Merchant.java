@@ -17,16 +17,15 @@ import java.util.HashSet;
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "merchant_id")
     private Integer merchantId;
 
-    @Column(name = "merchant_name")
+    @Column(nullable = false)
     private String merchantName;
 
-    @Column(name = "merchant_password")
+    @Column(nullable = false)
     private String merchantPassword;
 
-    @Column(name = "merchant_amount")
+    @Column(nullable = false)
     private Integer merchantAmount;
 
     /**

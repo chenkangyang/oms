@@ -19,19 +19,18 @@ public class Consumer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "consumer_id")
     private Integer consumerId;
 
-    @Column(name = "consumer_name", nullable = false)
+    @Column(nullable = false)
     private String consumerName;
 
-    @Column(name = "consumer_password", nullable = false)
+    @Column(nullable = false)
     private String consumerPassword;
 
-    @Column(name = "consumer_address", nullable = false)
+    @Column(nullable = false)
     private String consumerAddress;
 
-    @Column(name = "consumer_amount", nullable = false)
+    @Column(nullable = false)
     private int consumerAmount;
 
     /**
