@@ -1,12 +1,20 @@
 package com.mrky.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
 
@@ -16,125 +24,105 @@ public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "goods_id")
-    private Integer id;
+    private Integer goodsId;
 
-    @Column(name = "goods_name")
-    private String name;
+    @Column(nullable = false)
+    private String goodsName;
 
-    @Column(name = "goods_imgUrl")
-    private String imgUrl;
+    @Column(nullable = false)
+    private int goodsPrice;
 
-    @Column(name = "goods_price")
-    private Double price;
+    @Column(nullable = false)
+    private Integer goodsStock;
 
-    @Column(name = "goods_number")
-    private Integer number;
-
-    @ManyToOne(targetEntity = Merchant.class)
-    @JoinColumn(name = "goods", referencedColumnName = "merchant")
-    private Merchant merchant;
-
-    @OneToOne(targetEntity = Order.class)
-    @JoinColumn(name = "goods_id", referencedColumnName = "order_goodsId")
-    private Order order;
+    // 放弃使用关系映射注解
+    @Column(nullable = false)
+    private Integer merchantId;
 
     /**
-     * @return the id
+     * @return the goodsId
      */
-    public Integer getId() {
-        return id;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
     /**
-     * @param id the id to set
+     * @param goodsId the goodsId to set
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     /**
-     * @return the name
+     * @return the goodsName
      */
-    public String getName() {
-        return name;
+    public String getGoodsName() {
+        return goodsName;
     }
 
     /**
-     * @param name the name to set
+     * @param goodsName the goodsName to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 
     /**
-     * @return the imgUrl
+     * @return the goodsPrice
      */
-    public String getImgUrl() {
-        return imgUrl;
+    public int getGoodsPrice() {
+        return goodsPrice;
     }
 
     /**
-     * @param imgUrl the imgUrl to set
+     * @param goodsPrice the goodsPrice to set
      */
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setGoodsPrice(int goodsPrice) {
+        this.goodsPrice = goodsPrice;
     }
 
     /**
-     * @return the price
+     * @return the goodsStock
      */
-    public Double getPrice() {
-        return price;
+    public Integer getGoodsStock() {
+        return goodsStock;
     }
 
     /**
-     * @param price the price to set
+     * @param goodsStock the goodsStock to set
      */
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setGoodsStock(Integer goodsStock) {
+        this.goodsStock = goodsStock;
     }
 
     /**
-     * @return the number
+     * @return the merchantId
      */
-    public Integer getNumber() {
-        return number;
+    public Integer getMerchantId() {
+        return merchantId;
     }
 
     /**
-     * @param number the number to set
+     * @param merchantId the merchantId to set
      */
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setMerchantId(Integer merchantId) {
+        this.merchantId = merchantId;
     }
 
-    /**
-     * @return the merchant
-     */
-    public Merchant getMerchant() {
-        return merchant;
-    }
+    // 暂时不做
+    // @Column(name = "goods_imgUrl")
+    // private String imgUrl;
 
-    /**
-     * @param merchant the merchant to set
-     */
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
+    // 很多的goods对应一个merchant
+    // 表示merchant不能为空，删除商品不影响merchant
+    // @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional =
+    // false)
+    // @JoinColumn(name = "goods_goods_id", referencedColumnName = "merchant_id")
+    // private Merchant merchant;
 
-    /**
-     * @return the order
-     */
-    public Order getOrder() {
-        return order;
-    }
-
-    /**
-     * @param order the order to set
-     */
-    public void setOrder(Order order) {
-        this.order = order;
-    }
+    // // 一个goods可以在多个order中出现
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods")
+    // @JoinColumn(name = "order_order_id", referencedColumnName = "goods_id")
+    // private Collection<Order> order = new HashSet<Order>();
 
 }

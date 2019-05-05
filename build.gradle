@@ -34,8 +34,8 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-security'
 
 
-	// Use commons to builder objects' toString() method easilly
- //   compile 'org.apache.commons:commons-lang3'
+    compile 'org.apache.commons:commons-lang3'
+	
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

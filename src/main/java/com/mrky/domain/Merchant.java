@@ -1,6 +1,7 @@
 package com.mrky.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,72 +17,75 @@ import java.util.HashSet;
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "merchant_id")
-    private Integer id;
+    private Integer merchantId;
 
-    @Column(name = "merchant_password")
-    private String password;
+    @Column(nullable = false)
+    private String merchantName;
 
-    @Column(name = "merchant_income")
-    private Integer income;
+    @Column(nullable = false)
+    private String merchantPassword;
 
-    @OneToMany(mappedBy = "merchant")
-    private Collection<Goods> goods = new HashSet<Goods>();
+    @Column(nullable = false)
+    private Integer merchantAmount;
 
     /**
-     * @return the id
+     * @return the merchantId
      */
-    public Integer getId() {
-        return id;
+    public Integer getMerchantId() {
+        return merchantId;
     }
 
     /**
-     * @param id the id to set
+     * @param merchantId the merchantId to set
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMerchantId(Integer merchantId) {
+        this.merchantId = merchantId;
     }
 
     /**
-     * @return the password
+     * @return the merchantName
      */
-    public String getPassword() {
-        return password;
+    public String getMerchantName() {
+        return merchantName;
     }
 
     /**
-     * @param password the password to set
+     * @param merchantName the merchantName to set
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
     }
 
     /**
-     * @return the income
+     * @return the merchantPassword
      */
-    public Integer getIncome() {
-        return income;
+    public String getMerchantPassword() {
+        return merchantPassword;
     }
 
     /**
-     * @param income the income to set
+     * @param merchantPassword the merchantPassword to set
      */
-    public void setIncome(Integer income) {
-        this.income = income;
+    public void setMerchantPassword(String merchantPassword) {
+        this.merchantPassword = merchantPassword;
     }
 
     /**
-     * @return the goods
+     * @return the merchantAmount
      */
-    public Collection<Goods> getGoods() {
-        return goods;
+    public Integer getMerchantAmount() {
+        return merchantAmount;
     }
 
     /**
-     * @param goods the goods to set
+     * @param merchantAmount the merchantAmount to set
      */
-    public void setGoods(Collection<Goods> goods) {
-        this.goods = goods;
+    public void setMerchantAmount(Integer merchantAmount) {
+        this.merchantAmount = merchantAmount;
     }
+
+    // 一个商家可以销售多间商品
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "merchant")
+    // private Collection<Goods> goods = new HashSet<Goods>();
 
 }

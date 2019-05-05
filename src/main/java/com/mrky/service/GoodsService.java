@@ -1,18 +1,14 @@
-package com.mrky.service;
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Ran Meng
+ * @LastEditors: Ran Meng
+ * @Date: 2019-04-25 21:25:29
+ * @LastEditTime: 2019-05-05 17:07:17
+ */
 
-import com.mrky.domain.Goods;
-import com.mrky.domain.Merchant;
-import com.mrky.domain.Order;
+package com.mrky.service;
 
 public interface GoodsService {
 
-    Goods addGoods(Goods goods);
-
-    void deleteGoods(Integer id);
-
-    void updateGoods(Goods goods);
-
-    Merchant getMerchant(Goods goods);
-
-    <Collection> Order getOrders(Integer id);
 }
