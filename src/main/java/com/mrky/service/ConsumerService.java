@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 22:41:55
- * @LastEditTime: 2019-05-04 23:19:23
+ * @LastEditTime: 2019-05-05 10:40:52
  */
 package com.mrky.service;
 
@@ -36,7 +36,7 @@ public interface ConsumerService {
     // 条件: 该产品存在，且库存 stcok > number
     // 参数: 客人consumerId, 商品goodsId，订单数目number
     // 操作: 将goods 的stock减少，增加订单，暂时不允许修改客户的消费以及商家的收入，只有交易完成
-    Map<String, String> addOrder(Integer consumerId, Integer goodsId, Integer number);
+    Map<String, String> addOrder(Integer consumerId, Integer goodsId, Integer orderNumber);
 
     // 功能: 删除订单
     // 权限要求: 指定客人
