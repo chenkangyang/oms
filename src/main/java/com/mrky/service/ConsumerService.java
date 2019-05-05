@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 22:41:55
- * @LastEditTime: 2019-05-05 10:40:52
+ * @LastEditTime: 2019-05-05 15:20:54
  */
 package com.mrky.service;
 
@@ -24,12 +24,13 @@ public interface ConsumerService {
     // 操作: 将用户添加到数据库，修改consumer数据库
     Map<String, String> registry(String consumerName, String consumerPassword, String address);
 
+    // 后续
     // 功能: 更新
     // 权限要求: 指定商家
     // 条件:
     // 参数: 商家id
     // 操作: 修改consumer数据库
-    Map<String, String> update(Consumer conumser);
+    // Map<String, String> update(Consumer conumser);
 
     // 功能: 购买
     // 权限要求: 指定客人
@@ -70,7 +71,13 @@ public interface ConsumerService {
     // 参数:
     // 操作: 查询商品
     // 浏览商品,暂时不添加关键词浏览
-    List<Order> lookGoods();
+    List<Goods> lookGoods();
+
+    // 功能: 浏览订单
+    // 权限要求: 指定客户
+    // 条件: 无
+    // 参数:
+    List<Order> lookOrders(Integer consumerId);
 
     // 功能: 查看消费
     // 权限要求: 指定客人

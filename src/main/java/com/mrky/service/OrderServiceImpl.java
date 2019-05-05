@@ -27,35 +27,4 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private GoodsRepository goodsRepository;
 
-    @Override
-    public Order addOrder(Order order) {
-        return orderRepository.save(order);
-    }
-
-    @Override
-    public void deleteOrder(Integer id) {
-        orderRepository.deleteByOrderId(id);
-    }
-
-    @Override
-    public Consumer getConsumer(Integer id) {
-        return consumerRepository.findByConsumerId(id);
-    }
-
-    @Override
-    public Goods getGoods(Integer id) {
-
-        return goodsRepository.findByGoodsId(id);
-    }
-
-    @Override
-    public Order readOrderById(Integer id) {
-        return orderRepository.findByOrderId(id);
-    }
-
-    @Override
-    public void updateOrder(Order order) {
-        orderRepository.save(order);
-    }
-
 }

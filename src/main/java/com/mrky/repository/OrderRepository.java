@@ -10,9 +10,6 @@ import com.mrky.domain.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    @Query("select o from Order o where o.order_consumerId = :consumer_id")
-    List<Order> findByConsumerId(@Param(value = "consumer_id") Integer id);
-
     @Query("delete from Order o where o.order_goodsId = :goods_id")
     void deleteByGoodsId(@Param(value = "goods_id") Integer goods_id);
 
@@ -24,5 +21,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query("select o from Order o where o.order_id = :order_id")
     Order findByOrderId(@Param(value = "order_id") Integer order_id);
+
+    List<Order> findByConsumerId(Integer consumerId);
 
 }

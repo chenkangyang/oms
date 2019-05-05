@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 21:26:03
- * @LastEditTime: 2019-04-28 16:30:10
+ * @LastEditTime: 2019-05-05 15:27:10
  */
 
 package com.mrky.service;
@@ -34,37 +34,5 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private MerchantRepository merchantRepository;
-
-    @Override
-    public Goods addGoods(Goods goods) {
-        return goodsRepository.save(goods);
-    }
-
-    @Override
-    public void deleteGoods(Integer id) {
-        goodsRepository.deleteById(id);
-        // orderRepository.deleteByGoodsId(id);
-    }
-
-    @Override
-    public Merchant getMerchant(Integer id) {
-
-        return merchantRepository.findByMerchantId(id);
-    }
-
-    @Override
-    public List<Order> getOrders(Integer id) {
-        return orderRepository.findByGoodsId(id);
-    }
-
-    @Override
-    public Goods readGoodsById(Integer id) {
-        return goodsRepository.findByGoodsId(id);
-    }
-
-    @Override
-    public void updateGoods(Goods goods) {
-        goodsRepository.save(goods);
-    }
 
 }
