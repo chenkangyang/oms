@@ -40,7 +40,10 @@ public class Order {
     @Column(name = "order_consumer_name", nullable = false)
     private String consumerName;
 
-    // 1：客户下单 -> 2:客人取消订单 -> 3：客人确认收货 -> 4:客人退货 -> 5:商家同意
+    @Column(name = "order_amount", nullable = false)
+    private Integer orderAmount;
+
+    // 1：客户下单 -> 2：客人确认收货 -> 3:客人退货 -> 4:商家同意
     @Column(name = "order_status", nullable = false)
     private Integer orderStatus;
 
@@ -150,6 +153,20 @@ public class Order {
      */
     public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    /**
+     * @return the orderAmount
+     */
+    public Integer getOrderAmount() {
+        return orderAmount;
+    }
+
+    /**
+     * @param orderAmount the orderAmount to set
+     */
+    public void setOrderAmount(Integer orderAmount) {
+        this.orderAmount = orderAmount;
     }
 
 }
