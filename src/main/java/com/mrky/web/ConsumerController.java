@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 import com.mrky.repository.ConsumerRepository;
 import com.mrky.exception.*;
 
@@ -29,14 +29,13 @@ public class ConsumerController {
 
     // 注册
     @RequestMapping(path = "/consumers/registry", method = RequestMethod.POST)
-    public Map<String, String> registry(@RequestParam String consumerName, @RequestParam String consumerPassword,
-            @RequestParam String consumerAddress) {
+    public Map<String, String> registry(@RequestParam("username") String consumerName,
+            @RequestParam("password") String consumerPassword, @RequestParam("address") String consumerAddress) {
 
         return consumerServiceImpl.registry(consumerName, consumerPassword, consumerAddress);
 
     }
 
-    // TODO
     @RequestMapping(path = "/consumer/order", method = RequestMethod.POST)
     public Map<String, String> addOrder(@RequestParam Integer consumerId, @RequestParam Integer orderNumber,
             @RequestParam Integer goodsId) {
@@ -60,7 +59,7 @@ public class ConsumerController {
     }
 
     @RequestMapping(path = "/consumer/order", method = RequestMethod.GET)
-    public List<Order> findOrder(@RequestParam Integer consumerId) {
+    public List<MyOrder> findOrder(@RequestParam Integer consumerId) {
 
         return consumerServiceImpl.lookOrders(consumerId);
     }

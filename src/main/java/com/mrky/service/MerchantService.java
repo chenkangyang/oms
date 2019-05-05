@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 17:17:44
- * @LastEditTime: 2019-05-05 16:09:43
+ * @LastEditTime: 2019-05-05 17:07:46
  */
 
 package com.mrky.service;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public interface MerchantService {
     // 条件:
     // 参数: 商家id，
     // 操作: 返回该商户订单
-    List<Order> showOrders(Integer merchantId);
+    List<MyOrder> showOrders(Integer merchantId);
 
     // 功能: 处理退货
     // 权限要求: 指定商家

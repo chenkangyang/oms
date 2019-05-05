@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-05-05 16:42:45
+ * @LastEditTime: 2019-05-05 17:11:47
  */
 
 package com.mrky.service;
@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 import com.mrky.repository.ConsumerRepository;
 import com.mrky.repository.GoodsRepository;
 import com.mrky.repository.MerchantRepository;
-import com.mrky.repository.OrderRepository;
+import com.mrky.repository.MyOrderRepository;
 import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
 
@@ -37,7 +37,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     private ConsumerRepository consumerRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private MyOrderRepository orderRepository;
 
     @Autowired
     private GoodsRepository goodsRepository;
@@ -77,7 +77,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 
         Integer spends = goods.getGoodsPrice() * orderNumber;
 
-        Order o = new Order();
+        MyOrder o = new MyOrder();
         o.setConsumerId(consumerId);
         o.setConsumerName(consumer.getConsumerName());
         o.setGoodsId(goodsId);
@@ -104,7 +104,7 @@ public class ConsumerServiceImpl implements ConsumerService {
             map.put("msg", "不存在的客户");
             return map;
         }
-        Order order = orderRepository.findByOrderId(orderId);
+        MyOrder order = orderRepository.findByOrderId(orderId);
         if (order == null) {
             map.put("msg", "不存在的订单");
             return map;
@@ -144,7 +144,7 @@ public class ConsumerServiceImpl implements ConsumerService {
             map.put("msg", "不存在的客户");
             return map;
         }
-        Order order = orderRepository.findByOrderId(orderId);
+        MyOrder order = orderRepository.findByOrderId(orderId);
         if (order == null) {
             map.put("msg", "不存在的订单");
             return map;
@@ -255,7 +255,7 @@ public class ConsumerServiceImpl implements ConsumerService {
             map.put("msg", "不存在的客户");
             return map;
         }
-        Order order = orderRepository.findByOrderId(orderId);
+        MyOrder order = orderRepository.findByOrderId(orderId);
         if (order == null) {
             map.put("msg", "不存在的订单");
             return map;
@@ -287,13 +287,13 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    public List<Order> lookOrders(Integer consumerId) {
+    public List<MyOrder> lookOrders(Integer consumerId) {
         Consumer consumer = consumerRepository.findByConsumerId(consumerId);
         if (consumer == null) {
             // 不存在该用户
             return null;
         }
-        List<Order> list = orderRepository.findByConsumerId(consumerId);
+        List<MyOrder> list = orderRepository.findByConsumerId(consumerId);
         return list;
     }
 

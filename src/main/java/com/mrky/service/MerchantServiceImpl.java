@@ -3,17 +3,19 @@ package com.mrky.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 import com.mrky.exception.ConflictException;
 import com.mrky.exception.NotFoundException;
 import com.mrky.repository.ConsumerRepository;
 import com.mrky.repository.GoodsRepository;
 import com.mrky.repository.MerchantRepository;
-import com.mrky.repository.OrderRepository;
+import com.mrky.repository.MyOrderRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,7 @@ public class MerchantServiceImpl implements MerchantService {
     private GoodsRepository goodsRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private MyOrderRepository orderRepository;
 
     @Autowired
     private ConsumerRepository consumerRepository;
@@ -41,7 +43,7 @@ public class MerchantServiceImpl implements MerchantService {
             map.put("msg", "不存在的商家");
             return map;
         }
-        Order order = orderRepository.findByOrderId(orderId);
+        MyOrder order = orderRepository.findByOrderId(orderId);
         if (order == null) {
             map.put("msg", "不存在的订单");
             return map;
@@ -115,13 +117,18 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     @Override
-    public List<Order> showOrders(Integer merchantId) {
+    public List<MyOrder> showOrders(Integer merchantId) {
 
         Merchant merchant = merchantRepository.findByMerchantId(merchantId);
         if (merchant == null) {
             return null;
         }
-        List<Order> list = orderRepository.findByMerchantId(merchantId);
+        List<Goods> goods = goodsRepository.findByMerchantId(merchantId);
+        List<Integer> goodsId = new ArrayList<>();
+        for (Goods g : goods) {
+            goodsId.add(g.getGoodsId());
+        }
+        List<MyOrder> list = orderRepository.findByGoodsId(goodsId);
 
         return list;
     }

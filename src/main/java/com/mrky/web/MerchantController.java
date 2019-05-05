@@ -11,7 +11,7 @@ import java.util.Map;
 
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 import com.mrky.service.GoodsServiceImpl;
 import com.mrky.service.MerchantServiceImpl;
 import com.mrky.service.OrderServiceImpl;
@@ -26,7 +26,8 @@ public class MerchantController {
     private MerchantServiceImpl merchantServiceImpl;
 
     @RequestMapping(path = "/merchant/registry", method = RequestMethod.POST)
-    public Map<String, String> registry(@RequestParam String merchantName, @RequestParam String merchantPassword) {
+    public Map<String, String> registry(@RequestParam("username") String merchantName,
+            @RequestParam("password") String merchantPassword) {
 
         return merchantServiceImpl.registry(merchantName, merchantPassword);
     }
@@ -45,7 +46,7 @@ public class MerchantController {
     }
 
     @RequestMapping(path = "/merchant/order", method = RequestMethod.GET)
-    public List<Order> lookOrder(@RequestParam Integer merchantId) {
+    public List<MyOrder> lookOrder(@RequestParam Integer merchantId) {
         return merchantServiceImpl.showOrders(merchantId);
     }
 

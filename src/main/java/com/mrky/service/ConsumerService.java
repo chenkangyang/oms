@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 22:41:55
- * @LastEditTime: 2019-05-05 15:20:54
+ * @LastEditTime: 2019-05-05 17:05:58
  */
 package com.mrky.service;
 
@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.mrky.domain.Consumer;
 import com.mrky.domain.Goods;
-import com.mrky.domain.Order;
+import com.mrky.domain.MyOrder;
 
 import java.util.List;
 import java.util.Map;
@@ -77,7 +77,7 @@ public interface ConsumerService {
     // 权限要求: 指定客户
     // 条件: 无
     // 参数:
-    List<Order> lookOrders(Integer consumerId);
+    List<MyOrder> lookOrders(Integer consumerId);
 
     // 功能: 查看消费
     // 权限要求: 指定客人
