@@ -24,4 +24,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List<Order> findByConsumerId(Integer consumerId);
 
+    List<Order> findByMerchantId(Integer merchantId);
+
 }

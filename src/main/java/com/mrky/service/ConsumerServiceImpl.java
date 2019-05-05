@@ -3,7 +3,7 @@
  * @Author: ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-24 23:05:58
- * @LastEditTime: 2019-05-05 15:26:44
+ * @LastEditTime: 2019-05-05 15:43:52
  */
 
 package com.mrky.service;
@@ -123,6 +123,11 @@ public class ConsumerServiceImpl implements ConsumerService {
         } else {
             map.put("msg", "订单当前状态不允许取消");
         }
+
+        // goods信息修改
+        Goods goods = goodsRepository.findByGoodsId(order.getGoodsId());
+        goods.setGoodsStock(goods.getGoodsStock() + order.getOrderNumber());
+        goodsRepository.save(goods);
 
         // 消费金额更改
         consumer.setConsumerAmount(consumer.getConsumerAmount() - order.getOrderAmount());
