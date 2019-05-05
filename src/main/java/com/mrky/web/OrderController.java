@@ -29,10 +29,4 @@ public class OrderController {
     @Autowired
     private GoodsServiceImpl goodsServiceImpl;
 
-    @RequestMapping(path = "/order/add", method = RequestMethod.POST)
-    public String addOrder(@RequestParam Integer id, @RequestParam Integer consumer_id, @RequestParam Integer goods_id,
-            @RequestParam Integer number) {
-
-        return null;
-    }
 }

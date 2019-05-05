@@ -10,4 +10,6 @@ import com.mrky.domain.Goods;
 public interface GoodsRepository extends JpaRepository<Goods, Integer> {
 
     Goods findByGoodsId(Integer goodsId);
+
+    List<Goods> findByMerchantId(Integer merchantId);
 }

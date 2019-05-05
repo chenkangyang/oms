@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 import com.mrky.domain.Goods;
 import com.mrky.domain.Merchant;
 import com.mrky.domain.Order;
@@ -22,24 +25,38 @@ public class MerchantController {
     @Autowired
     private MerchantServiceImpl merchantServiceImpl;
 
-    @RequestMapping(path = "/merchant/add", method = RequestMethod.POST)
-    public @ResponseBody String addMerchant(@RequestParam Integer id, @RequestParam String password,
-            @RequestParam Integer income) {
+    @RequestMapping(path = "/merchant/registry", method = RequestMethod.POST)
+    public Map<String, String> registry(@RequestParam String merchantName, @RequestParam String merchantPassword) {
 
-        return "Add one merchant";
+        return merchantServiceImpl.registry(merchantName, merchantPassword);
     }
 
-    @RequestMapping(path = "/merchant/delete", method = RequestMethod.POST)
-    public @ResponseBody String deleteMerchant(@RequestParam Integer id) {
+    @RequestMapping(path = "/merchant/goods", method = RequestMethod.GET)
+    public List<Goods> deleteMerchant(@RequestParam Integer merchantId) {
 
-        return "Delete one merchant";
+        return merchantServiceImpl.showOwnGoods(merchantId);
     }
 
-    @RequestMapping(path = "/merchant/update", method = RequestMethod.POST)
-    public @ResponseBody String updateMerchant(@RequestParam Integer id, @RequestParam String password,
-            @RequestParam Integer income) {
+    @RequestMapping(path = "/merchant/goods", method = RequestMethod.POST)
+    public Map<String, String> addGoods(@RequestParam Integer merchantId, @RequestParam String goodsName,
+            @RequestParam Integer goodsPrice, @RequestParam Integer goodsStock) {
 
-        return "Add one merchant";
+        return merchantServiceImpl.addGoods(merchantId, goodsName, goodsPrice, goodsStock);
+    }
+
+    @RequestMapping(path = "/merchant/order", method = RequestMethod.GET)
+    public List<Order> lookOrder(@RequestParam Integer merchantId) {
+        return merchantServiceImpl.showOrders(merchantId);
+    }
+
+    @RequestMapping(path = "/merchant/amount", method = RequestMethod.GET)
+    public Map<String, String> lookAmount(@RequestParam Integer merchantId) {
+        return merchantServiceImpl.lookAmount(merchantId);
+    }
+
+    @RequestMapping(path = "/merchant/order", method = RequestMethod.PUT)
+    public Map<String, String> allowReturn(@RequestParam Integer merchantId, @RequestParam Integer orderId) {
+        return merchantServiceImpl.allowReturn(merchantId, orderId);
     }
 
 }

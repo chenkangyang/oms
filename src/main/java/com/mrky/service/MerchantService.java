@@ -3,7 +3,7 @@
  * @Autor: Ran Meng
  * @LastEditors: Ran Meng
  * @Date: 2019-04-25 17:17:44
- * @LastEditTime: 2019-05-04 22:46:07
+ * @LastEditTime: 2019-05-05 16:09:43
  */
 
 package com.mrky.service;
@@ -45,7 +45,7 @@ public interface MerchantService {
     // 条件:
     // 参数: 商家id， 商品goodsName, goodsPrice, goodsStock
     // 操作: 在OrderRepository中增加指定产品
-    Map<String, String> addGoods(Integer merchantId, String goodsName, String goodsPrice, String goodsStock);
+    Map<String, String> addGoods(Integer merchantId, String goodsName, Integer goodsPrice, Integer goodsStock);
 
     // 功能: 确认订单？？？，商家有权利？
     // 权限要求:

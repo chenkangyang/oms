@@ -128,11 +128,36 @@ public class MerchantServiceImpl implements MerchantService {
 
     @Override
     public List<Goods> showOwnGoods(Integer merchantId) {
-        return null;
+        Merchant merchant = merchantRepository.findByMerchantId(merchantId);
+        if (merchant == null) {
+            return null;
+        }
+
+        List<Goods> list = goodsRepository.findByMerchantId(merchantId);
+        return list;
     }
 
     @Override
-    public Map<String, String> addGoods(Integer merchantId, String goodsName, String goodsPrice, String goodsStock) {
-        return null;
+    public Map<String, String> addGoods(Integer merchantId, String goodsName, Integer goodsPrice, Integer goodsStock) {
+
+        Map<String, String> map = new HashMap<>();
+        Merchant merchant = merchantRepository.findByMerchantId(merchantId);
+        if (merchant == null) {
+            map.put("msg", "不存在的商家");
+            return null;
+        }
+
+        // 对参数检查。。。，目前算了吧。。。
+
+        Goods goods = new Goods();
+        goods.setGoodsName(goodsName);
+        goods.setGoodsPrice(goodsPrice);
+        goods.setGoodsStock(goodsStock);
+        goods.setMerchantId(merchantId);
+
+        goodsRepository.save(goods);
+
+        map.put("status", "successful");
+        return map;
     }
 }
