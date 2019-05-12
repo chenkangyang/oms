@@ -5,7 +5,7 @@ Order management system
 build with spring & mysql
 
 #### 软件架构
-前端：React + UXCore
+前端：React + AntDesign
 后端：Spring Boot
 数据库： MySQL
 
