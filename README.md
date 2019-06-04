@@ -5,19 +5,18 @@ Order management system
 build with spring & mysql
 
 #### 软件架构
-前端：React + UXCore
+前端：React + AntDesign
 后端：Spring Boot
 数据库： MySQL
 
 
 #### 环境配置
-1. IDEAC 2019.1 中添加Spring Assistant
+1. 若使用IDEAC, 安装 Spring Assistant 插件; 或者使用官方提供的 [Spring Initializer](https://start.spring.io)
+    
     gradle 修改为国内镜像：
-
     C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
     文件内容如下:
   ```java
-  
   
   allprojects{
       repositories {
@@ -117,7 +116,39 @@ $ gradle wrapper
 
    ![1555566478497](assets/1555566478497.png)
 
-
+最后项目结构应该为:
+```
+.
+├── README.md
+├── build
+│   ├── classes
+│   │   └── java
+│   │       └── main
+│   │           └── com
+│   │               └── mrky
+│   │                   ├── Application.class
+│   ├── resources
+│   │   └── main
+│   │       └── application.properties
+│   └── tmp
+│       └── compileJava
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+└── src
+    └── main
+        ├── java
+        │   └── com
+        │       └── mrky
+        │           ├── Application.java
+        ├── main.iml
+        └── resources
+            └── application.properties
+```
 
 #### 安装教程
 
@@ -128,7 +159,6 @@ $ gradle wrapper
 
 1. xxx
 2. xxx
-3. xxx
 
 #### 参与贡献
 
@@ -189,13 +219,3 @@ $ gradle wrapper
 
    1. 若无冲突，让管理员审核
    2. 若有冲突，git pull origin master，解决冲突，再提交。若冲突不可避免，交由管理员在master分支中手动解决冲突：git pull origin master，手动解决冲突（可利用vscode明显地看到冲突的地方）。管理员解决完冲突后，再次开发时，转7。
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
