@@ -11,13 +11,12 @@ build with spring & mysql
 
 
 #### 环境配置
-1. IDEAC 2019.1 中添加Spring Assistant
+1. 若使用IDEAC, 安装 Spring Assistant 插件; 或者使用官方提供的 [Spring Initializer](https://start.spring.io)
+    
     gradle 修改为国内镜像：
-
     C:\Users\<windows用户名称>\.gradle 中新建文件init.gradle
     文件内容如下:
   ```java
-  
   
   allprojects{
       repositories {
@@ -117,7 +116,39 @@ $ gradle wrapper
 
    ![1555566478497](assets/1555566478497.png)
 
-
+最后项目结构应该为:
+```
+.
+├── README.md
+├── build
+│   ├── classes
+│   │   └── java
+│   │       └── main
+│   │           └── com
+│   │               └── mrky
+│   │                   ├── Application.class
+│   ├── resources
+│   │   └── main
+│   │       └── application.properties
+│   └── tmp
+│       └── compileJava
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+└── src
+    └── main
+        ├── java
+        │   └── com
+        │       └── mrky
+        │           ├── Application.java
+        ├── main.iml
+        └── resources
+            └── application.properties
+```
 
 #### 安装教程
 
