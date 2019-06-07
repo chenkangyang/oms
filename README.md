@@ -150,7 +150,7 @@ $ gradle wrapper
             └── application.properties
 ```
 
-#### 采用前后端分离, 前端编译结果在项目根目录"Font_End/build/"下
+#### 采用前后端分离, 前端编译结果在项目根目录"Font_End/"下
 #### 安装教程
 
 1. xxxx
