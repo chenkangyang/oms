@@ -45,6 +45,13 @@ const CollectionCreateForm = Form.create()(
                             <Input />
                         )}
                     </FormItem>
+                    <FormItem label="图片链接">
+                        {getFieldDecorator('goods_src', {
+                            rules: [{ required: true, message: '请输入商品图片链接!' }],
+                        })(
+                            <Input />
+                        )}
+                    </FormItem>
                     <FormItem label="商品价格">
                         {getFieldDecorator('goods_price', {
                             rules: [{ required: true, message: '请输入商品价格!' }],
