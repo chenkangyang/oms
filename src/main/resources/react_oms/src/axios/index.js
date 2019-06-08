@@ -64,5 +64,9 @@ export const getUserGoods = () => post({ url: config.MOCK_AUTH_USER_GET_GOODS});
 // 登录
 export const login = (data) => post({ url: config.MOCK_AUTH_LOGIN, data: data});
 
+// 登出
+export const logout = (data) => post({ url: config.MOCK_AUTH_LOGOUT, data: data});
+
+
 // 退货? 不存在的 - -
 

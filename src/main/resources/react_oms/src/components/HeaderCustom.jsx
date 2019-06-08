@@ -8,6 +8,7 @@ import { queryString } from '../utils';
 import { withRouter } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
+import { logout } from '../axios'
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -43,11 +44,16 @@ class HeaderCustom extends Component {
     };
     menuClick = e => {
         console.log(e);
-        e.key === 'logout' && this.logout();
+        e.key === 'logoutThis' && this.logoutThis();
     };
-    logout = () => {
+    logoutThis = () => {
         localStorage.removeItem('user');
-        this.props.history.push('/login')
+        console.log(this.state.user);
+        logout(this.state.user).then(()=>{
+            console.log("登出成功");
+
+        });
+        this.props.history.push('/login');
     };
     popoverHide = () => {
         this.setState({
@@ -95,7 +101,7 @@ class HeaderCustom extends Component {
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {this.props.user.userName}</Menu.Item>
                             <Menu.Item key="setting:2">个人信息</Menu.Item>
-                            <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
+                            <Menu.Item key="logoutThis"><span onClick={this.logoutThis}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">
                             <Menu.Item key="setting:3">个人设置</Menu.Item>
