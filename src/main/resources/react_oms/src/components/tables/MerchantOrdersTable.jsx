@@ -56,16 +56,16 @@ class MerchantOrdersTable extends React.Component {
         getMerchantOrders().then(({ orders }) => {
             this.setState({
                 data: orders,
-                loading: false
+                loading: false,
             });
+            console.log(this.state);
         });
     };
 
     delivery = () => { // 提交发货请求后紧接着刷新状态
-        this.setState({ loading: true });
-
+        const indexs = this.state.selectedRowKeys;
         setDelivery({
-            indexs: this.state.selectedRowKeys
+            indexs: indexs
         }).then(({ code }) => {
             if (code === 200) {
                 message.success("发货成功");
