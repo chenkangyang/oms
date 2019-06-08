@@ -1,6 +1,6 @@
 # oms
 
-演示地址: njcky.gitee.io/oms/
+[演示地址](http://njcky.gitee.io/oms/)
 
 #### 介绍
 Order management system
