@@ -70,7 +70,7 @@ class MerchantOrdersTable extends React.Component {
             if (code === 200) {
                 message.success("发货成功");
             } else if (code === 500) {
-                message.error("发货成功");
+                message.error("发货失败");
             }
             this.setState({
                 loading: false
