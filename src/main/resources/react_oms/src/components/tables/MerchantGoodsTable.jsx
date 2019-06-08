@@ -95,15 +95,16 @@ class MerchantGoodsTable extends React.Component {
         getMerchantGoods().then(({ goods }) => {
             this.setState({
                 data: goods,
-                loading: false
+                loading: false,
             });
         });
     };
 
     deleteGoods = () => {
         this.setState({ loading: true });
+        const indexs = this.state.selectedRowKeys
         deleteMerchantGoods({
-            indexs: this.state.selectedRowKeys
+            indexs: indexs
         }).then(({ code }) => {
             if (code === 200) {
                 message.success("下架成功");
