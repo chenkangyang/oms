@@ -19,6 +19,7 @@ export const MOCK_AUTH_USER_GET_ORDERS = MOCK_AUTH_VISITOR + '/getorders' // 用
 export const MOCK_AUTH_USER_GET_GOODS = MOCK_AUTH_VISITOR + '/getgoods' // 用户查询所有商品接口
 export const MOCK_AUTH_USER_EXPENSE = MOCK_AUTH_VISITOR + '/getexpense' // 用户查询支出接口
 export const MOCK_AUTH_LOGIN = MOCK_AUTH + '/login'; // 登录接口
+export const MOCK_AUTH_LOGOUT = MOCK_AUTH + '/logout'; // 登出接口
 
 
 // github授权
