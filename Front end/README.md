@@ -12,7 +12,6 @@
 
 ## 用户界面
 
-
 - 展示支出
 - 展示订单数
 - 展示所有订单
@@ -21,6 +20,7 @@
 ### 下订单
 
 - 提交下订单表单
+![newOrder.gif](http://blog.nuptalex.xyz/newOrder.gif)
 
 ## 卖家界面
 
