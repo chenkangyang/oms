@@ -153,25 +153,19 @@ $ gradle wrapper
 ```
 
 #### 采用前后端分离, 前端编译结果在项目根目录"Font_End/"下
-#### 安装教程
-
-1. xxxx
-2. xxxx
-
-#### 使用说明
-
-1. xxx
-2. xxx
 
 #### 参与贡献
 
-1. 联系管理员邀请你加入仓库
+[git使用教程](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+
+1. 联系管理员邀请你加入仓库; 或者fork 本项目, 提pull request
 
 2. 添加公钥到码云：
 
    http://www.runoob.com/w3cnote/view-ssh-public-key.html
 
-3. ```bash
+3. 设置本地git的信息
+    ```bash
    # Setting Up User Name and Email Address
    $ git config --global user.name "John Doe"
    $ git config --global user.email johndoe@example.com
@@ -179,17 +173,73 @@ $ gradle wrapper
    $ git config --list
    ```
 
-4. 使用ssh方式，克隆远程分支到本地，git clone git@gitee.com:njcky/oms.git （只会clone 远程的master分支）
+4. 使用ssh方式，克隆远程仓库到本地，
+
+```zsh
+git clone git@gitee.com:njcky/oms.git 
+```
+所有本地分支默认与远程主机的同名分支, 建立追踪关系, 也就是说, 本地的`master`分支自动"追踪"远程的`origin/master`分支.
+
+手动建立追踪关系:
+
+```zsh
+git branch --set-upstream master origin/next
+```
 
 5. 新建 自己的 分支
+   1. 查看本地分支 `git branch`
+   2. 查看所有隐藏的分支 `git branch -a` （origin为远程仓库的别名）
+   
+   **3.1 远程先开好分支, 然后拉取到本地**
+   切换到远程分支`origin/mr`, 并新建一个本地分支为"mr": 
+   ```zsh
+   git checkout -b mr origin/mr
+   ```
+   **3.2 本地开分支, 然后推送到远程, 远程没有分支会自动创建**
+   ```zsh
+   git checkout -b mr
+   git push origin mr:origin/mr
+   ```
+   切换分支, 开始开发 (每次开发前需要和远程master分支保持同步)
+   ```zsh
+   git checkout mr
+   git pull origin master
+   ```
 
-   1. 查看远程分支 git branch -a （origin为远程仓库的别名）
-   2. 查看本地分支 git branch
-   3. 切换到远程分支origin/mr并命令本地分支为"mr": git checkout -b mr origin/mr
+6. 提交代码 
 
-6. 提交代码 git push (默认提交到本地分支对应的远程分支)
+    1. 提交代码到本地暂存库
+    ```zsh
+    git add . 
+    git commit -m 'xxx'
+    ```
+    2. 提交代码到远程仓库
+    提交当前分支内容到远程对应分支
+    ```zsh
+    git push <远程主机名> <本地分支名>:<远程分支名>
+    ```
+    如果省略远程分支名，则表示将本地分支推送与之存在"追踪关系"的远程分支(通常两者同名), 如果该远程分支不存在, 则会被新建.
+    ```zsh
+    git push origin mr
+    ```
+    若想删除远程主机的指定分支: 
+    ```zsh
+    git push origin --delete mr
+    ```
+    如果当前分支与远程分支之间存在追踪关系, 则本地分支和远程分支都可以省略.
+    ```zsh
+    git push origin
+    ```
+    如果当前分支只有一个追踪分支, 那么主机名都可以省略.
+    ```zsh
+    git push
+    ```
+    如果当前分支与多个主机存在追踪关系, 则可以使用-u选项指定一个默认主机, 这样后面就可以不加任何参数使用`git push`.
+    ```zsh
+    git push -u origin mr
+    ```
 
-   1. git push 避免每次都输入密码？
+    3. git push 避免每次都输入密码？
 
       是否使用了https的方式进行连接？
 
@@ -207,7 +257,6 @@ $ gradle wrapper
 
       git push -u origin master
 
-      
 
 7. 新特性开发流程：
 
@@ -216,9 +265,19 @@ $ gradle wrapper
    3. 新特性开发
    4. git add .
    5. git commit -m 'add new feature'
-   6. git push 提交到对应远程分支
+   6. git push 提交本地分支mr下的内容到对应远程分支origin/mr
 
 8. 提交 Pull Request 到 master分支
 
    1. 若无冲突，让管理员审核
    2. 若有冲突，git pull origin master，解决冲突，再提交。若冲突不可避免，交由管理员在master分支中手动解决冲突：git pull origin master，手动解决冲突（可利用vscode明显地看到冲突的地方）。管理员解决完冲突后，再次开发时，转7。
+
+9. 添加其余仓库, 同步代码
+    ```
+    git remote add github git@github.com:chenkangyang/oms.git
+    git remote -v
+    git add .
+    git commit -m 'update'
+    git push github
+    ```
+
