@@ -1,8 +1,6 @@
 import React from 'react';
 import { Table, Button, Row, Col, Card, message } from 'antd';
-import { getMerchantOrders } from '../../axios';
-import { setDelivery } from '../../axios';
-
+import { getMerchantOrders, setDelivery } from '../../axios';
 
 const columns = [{
     title: '订单ID',
@@ -58,7 +56,6 @@ class MerchantOrdersTable extends React.Component {
                 data: orders,
                 loading: false,
             });
-            console.log(this.state);
         });
     };
 

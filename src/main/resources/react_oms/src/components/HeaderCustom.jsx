@@ -3,12 +3,12 @@ import screenfull from 'screenfull';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
 import { Menu, Icon, Layout, Badge, Popover } from 'antd';
-import { gitOauthToken, gitOauthInfo } from '../axios';
 import { queryString } from '../utils';
 import { withRouter } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
-import { logout } from '../axios'
+import { gitOauthToken, gitOauthInfo, logout } from '../axios';
+
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;

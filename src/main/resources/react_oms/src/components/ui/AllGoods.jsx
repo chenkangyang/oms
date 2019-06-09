@@ -3,8 +3,7 @@ import React from 'react';
 import { Drawer, Divider, Row, Col, Card, Form, InputNumber, Button, message } from 'antd';
 import AuthWidget from '@/components/widget/AuthWidget';
 
-import { getUserGoods } from '../../axios';
-import { newUserOrder } from '../../axios';
+import { getUserGoods, newUserOrder } from '../../axios';
 
 const { Meta } = Card;
 

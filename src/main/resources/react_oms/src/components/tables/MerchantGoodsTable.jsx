@@ -1,8 +1,6 @@
 import React from 'react';
 import { Table, Button, Row, Col, Card, Modal, Form, Input, InputNumber, message } from 'antd';
-import { getMerchantGoods } from '../../axios';
-import { newMerchantGoods } from '../../axios'
-import { deleteMerchantGoods } from '../../axios';
+import { getMerchantGoods, newMerchantGoods, deleteMerchantGoods } from '../../axios';
 
 const FormItem = Form.Item;
 

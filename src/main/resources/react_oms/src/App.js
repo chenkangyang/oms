@@ -17,8 +17,11 @@ class App extends Component {
     };
     componentWillMount() {
         const { setAlitaState } = this.props;
+        console.log("App.js, componentWillMount, this.props: ");
+        console.log(this.props);
         const user = JSON.parse(localStorage.getItem('user'));
         // user && receiveData(user, 'auth');
+        console.log("App.js, 从localStorage中获取用户信息 -> setAlitaState({ stateName: 'auth', data: user })")
         user && setAlitaState({ stateName: 'auth', data: user });
         // receiveData({a: 213}, 'auth');
         // fetchData({funcName: 'admin', stateName: 'auth'});
@@ -44,6 +47,8 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} } } = this.props;
+        console.log("App.js: this.props");
+        console.log(this.props);
         return (
             <DocumentTitle title={title}>
                 <Layout>
