@@ -153,6 +153,7 @@ $ gradle wrapper
 ```
 
 #### 采用前后端分离, 前端编译结果在项目根目录"Font_End/"下
+前端代码位于`./src/main/resources/react_oms`
 
 #### 参与贡献
 
