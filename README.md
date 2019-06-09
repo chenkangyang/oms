@@ -2,17 +2,28 @@
 
 [演示地址](http://njcky.gitee.io/oms/)
 > readme 太丑, 以后有空再整理
-#### 介绍
+
+- [oms](#oms)
+  * [介绍](#介绍)
+  * [软件架构](#软件架构)
+  * [环境配置](#环境配置)
+  * [前后端分离](#前后端分离)
+  * [参与贡献](#参与贡献)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+## s1
 Order management system
 build with spring & mysql
 
-#### 软件架构
+## s2
 前端：React + AntDesign
 后端：Spring Boot
 数据库： MySQL
 
 
-#### 环境配置
+## 环境配置
 1. 若使用IDEAC, 安装 Spring Assistant 插件; 或者使用官方提供的 [Spring Initializer](https://start.spring.io)
     
     gradle 修改为国内镜像：
@@ -152,10 +163,11 @@ $ gradle wrapper
             └── application.properties
 ```
 
-#### 采用前后端分离, 前端编译结果在项目根目录"Font_End/"下
+## 前后端分离
+前端编译结果在"./FrontEnd/"下
 前端代码位于`./src/main/resources/react_oms`
 
-#### 参与贡献
+## 参与贡献
 
 [git使用教程](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
