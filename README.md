@@ -1,7 +1,7 @@
 # oms
 
 [演示地址](http://njcky.gitee.io/oms/)
-
+> readme 太丑, 以后有空再整理
 #### 介绍
 Order management system
 build with spring & mysql
