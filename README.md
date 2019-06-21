@@ -1,6 +1,7 @@
 # oms
 
 [演示地址](http://njcky.gitee.io/oms/)
+[前端代码](https://github.com/chenkangyang/oms/tree/master/FrontEnd)
 > readme 太丑, 以后有空再整理
 
 - [oms](#oms)
